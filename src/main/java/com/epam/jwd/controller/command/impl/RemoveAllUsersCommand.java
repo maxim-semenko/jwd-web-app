@@ -15,7 +15,7 @@ public class RemoveAllUsersCommand implements Command {
     @Override
     public ResponseContext execute(RequestContext requestContext) {
         HttpSession session = requestContext.getHttpSession();
-        if (session.getAttribute("User") != null) {
+        if (session.getAttribute("user") != null) {
             UserService.getInstance().removeAllUsers();
         }
         return ADMIN_CABINET_REDIRECT;

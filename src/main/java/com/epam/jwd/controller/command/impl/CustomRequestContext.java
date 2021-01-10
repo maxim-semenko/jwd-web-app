@@ -2,11 +2,12 @@ package com.epam.jwd.controller.command.impl;
 
 import com.epam.jwd.controller.command.RequestContext;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CustomRequestContext implements RequestContext {
@@ -24,6 +25,19 @@ public class CustomRequestContext implements RequestContext {
                 .stream()
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Map<String, String> getParamMap() {
+        Map<String, String[]> stringMap = httpServletRequest.getParameterMap();
+        Map<String, String> map = new HashMap<>();
+        for (String parameterName : stringMap.keySet()) {
+            String[] values = stringMap.get(parameterName);
+            if (values != null && values.length > 0) {
+                map.put(parameterName, values[0]);
+            }
+        }
+        return map;
     }
 
     @Override

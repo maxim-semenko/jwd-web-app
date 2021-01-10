@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<c:if test="${sessionScope.User == null}">
+<c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
     <c:redirect url="home?command=HOME_PAGE"/>
 </c:if>
@@ -37,13 +37,13 @@
         <div class="lh-100">
             <h6 class="mb-0 text-white lh-100"><fmt:message key="user.name"/></h6>
             <c:choose>
-                <c:when test="${sessionScope.User.userStatus == 'UNKNOWN'}">
+                <c:when test="${sessionScope.user.userStatus == 'UNKNOWN'}">
                     <small style="color: gold"><fmt:message key="user.status.unknown"/></small>
                 </c:when>
-                <c:when test="${sessionScope.User.userStatus == 'ENROLLED'}">
+                <c:when test="${sessionScope.user.userStatus == 'ENROLLED'}">
                     <small style="color: #169e24"><fmt:message key="user.status.enrolled"/></small>
                 </c:when>
-                <c:when test="${sessionScope.User.userStatus == 'NO_ENROLLED'}">
+                <c:when test="${sessionScope.user.userStatus == 'NO_ENROLLED'}">
                     <small style="color: red"><fmt:message key="user.status.noEnrolled"/></small>
                 </c:when>
             </c:choose>

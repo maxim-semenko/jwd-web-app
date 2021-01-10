@@ -13,7 +13,7 @@ public class RemoveUserByAdminCommand implements Command {
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
-        UserService.getInstance().removeById(Integer.parseInt(requestContext.getParamList().get(1)));
+        UserService.getInstance().removeById(Integer.parseInt(requestContext.getParamMap().get("id")));
         requestContext.setAttribute("showAllUsers", UserService.getInstance().selectAll());
         return ALL_USERS_PAGE;
     }

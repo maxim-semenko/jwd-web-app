@@ -7,7 +7,7 @@
     <title><fmt:message key="user.edit.title"/></title>
     <%@include file="../subsidiary/bootstrap.jsp" %>
 </head>
-<c:if test="${sessionScope.User == null}">
+<c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
     <c:redirect url="home?command=HOME_PAGE"/>
 </c:if>
@@ -31,13 +31,13 @@
                     <div class="col-md-6 mb-3">
                         <label for="firstName"><fmt:message key="signup.firstname"/></label>
                         <input required type="text" class="form-control" id="firstName" name="firstname"
-                               value="${sessionScope.User.firstname}"
+                               value="${sessionScope.user.firstname}"
                                pattern="^([А-Я][а-я]{1,25}|[A-Z][a-z]{1,25})$" minlength="2" maxlength="25">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName"><fmt:message key="signup.lastname"/></label>
                         <input required type="text" class="form-control" id="lastName" name="lastname"
-                               value="${sessionScope.User.lastname}"
+                               value="${sessionScope.user.lastname}"
                                pattern="^([А-Я][а-я]{1,25}|[A-Z][a-z]{1,25})$" minlength="2" maxlength="25">
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <label for="login"><fmt:message key="home.login"/></label>
                     <div class="input-group">
                         <input required type="text" class="form-control" id="login" name="login"
-                               value="${sessionScope.User.login}"
+                               value="${sessionScope.user.login}"
                                pattern="^[a-zA-Z0-9]+$" minlength="2" maxlength="25">
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="input-group">
                         <label for="password"></label>
                         <input required type="password" class="form-control" id="password" name="password" minlength="8"
-                               value="${sessionScope.User.password}"
+                               value="${sessionScope.user.password}"
                                maxlength="255">
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="mb-3">
                     <label for="email"><fmt:message key="signup.email"/></label>
                     <input type="email" class="form-control" id="email" placeholder="you@gmail.com" name="email"
-                           value="${sessionScope.User.email}"
+                           value="${sessionScope.user.email}"
                            required minlength="2"
                            maxlength="25">
                 </div>
@@ -72,28 +72,28 @@
                 <div class="mb-3">
                     <label for="averageScore"><fmt:message key="signup.averageScore"/></label>
                     <input type="number" min="0" max="100" class="form-control" id="averageScore" name="averageScore"
-                           value="${sessionScope.User.averageScore}"
+                           value="${sessionScope.user.averageScore}"
                            required>
                 </div>
 
                 <div class="mb-3">
                     <label for="russianScore"><fmt:message key="signup.russianScore"/></label>
                     <input type="number" min="0" max="100" class="form-control" id="russianScore" name="russianScore"
-                           value="${sessionScope.User.russianExamScore}"
+                           value="${sessionScope.user.russianExamScore}"
                            required>
                 </div>
 
                 <div class="mb-3">
                     <label for="mathScore"><fmt:message key="signup.mathScore"/></label>
                     <input type="number" min="0" max="100" class="form-control" id="mathScore" name="mathScore"
-                           value="${sessionScope.User.mathExamScore}"
+                           value="${sessionScope.user.mathExamScore}"
                            required>
                 </div>
 
                 <div class="mb-3">
                     <label for="physicsScore"><fmt:message key="signup.physicsScore"/></label>
                     <input type="number" min="0" max="100" class="form-control" id="physicsScore" name="physicsScore"
-                           value="${sessionScope.User.physicsExamScore}"
+                           value="${sessionScope.user.physicsExamScore}"
                            required>
                 </div>
 
@@ -104,21 +104,21 @@
                     <div class="custom-control custom-radio">
                         <input id="FCSN" name="facultySelect" type="radio" class="custom-control-input" value="1"
                                required
-                        <c:if test="${sessionScope.User.facultyId == '1'}">
+                        <c:if test="${sessionScope.user.facultyId == '1'}">
                                checked
                         </c:if>>
                         <label class="custom-control-label" for="FCSN"><fmt:message key="label.faculty1"/></label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input required id="FITC" name="facultySelect" type="radio" class="custom-control-input"
-                               value="2" <c:if test="${sessionScope.User.facultyId == '2'}">
+                               value="2" <c:if test="${sessionScope.user.facultyId == '2'}">
                                checked
                         </c:if>>
                         <label class="custom-control-label" for="FITC"><fmt:message key="label.faculty2"/></label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input required id="FCAD" name="facultySelect" type="radio" class="custom-control-input"
-                               value="3" <c:if test="${sessionScope.User.facultyId == '3'}">
+                               value="3" <c:if test="${sessionScope.user.facultyId == '3'}">
                                checked
                         </c:if>>
                         <label class="custom-control-label" for="FCAD"><fmt:message key="label.faculty3"/></label>
@@ -126,7 +126,7 @@
                     <div class="custom-control custom-radio">
                         <input id="FRE" name="facultySelect" type="radio" class="custom-control-input" value="4"
                                required
-                        <c:if test="${sessionScope.User.facultyId == '4'}">
+                        <c:if test="${sessionScope.user.facultyId == '4'}">
                                checked
                         </c:if>>
                         <label class="custom-control-label" for="FRE"><fmt:message key="label.faculty4"/></label>

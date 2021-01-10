@@ -22,7 +22,8 @@ import com.epam.jwd.controller.command.impl.ShowAllUsersPageCommand;
 import com.epam.jwd.controller.command.impl.ShowEnrolledListCommand;
 import com.epam.jwd.controller.command.impl.SignInCommand;
 import com.epam.jwd.controller.command.impl.SignOutCommand;
-import com.epam.jwd.controller.command.impl.SignUpCommand;
+import com.epam.jwd.controller.command.impl.SignUpPageCommand;
+import com.epam.jwd.controller.command.impl.SignUpUserCommand;
 import com.epam.jwd.controller.command.impl.UserCabinetCommand;
 import com.epam.jwd.controller.command.impl.UserEditPageCommand;
 import lombok.extern.log4j.Log4j2;
@@ -81,8 +82,10 @@ public class CommandFactory {
                     return new SignInCommand();
                 case SIGN_OUT:
                     return new SignOutCommand();
-                case SIGN_UP:
-                    return new SignUpCommand();
+                case SIGN_UP_PAGE:
+                    return new SignUpPageCommand();
+                case SIGN_UP_USER:
+                    return new SignUpUserCommand();
                 case SHOW_ALL_USERS:
                     return new ShowAllUsersPageCommand();
                 case SHOW_ENROLLED_LIST:

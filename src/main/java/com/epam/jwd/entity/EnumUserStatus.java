@@ -1,5 +1,11 @@
 package com.epam.jwd.entity;
 
+/**
+ * Class enum, which assigns the status to the {@link User}.
+ *
+ * @version 0.0.1
+ */
+
 public enum EnumUserStatus {
     UNKNOWN(1),
     ENROLLED(2),

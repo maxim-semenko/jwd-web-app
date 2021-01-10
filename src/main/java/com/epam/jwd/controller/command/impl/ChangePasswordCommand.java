@@ -22,11 +22,11 @@ public class ChangePasswordCommand implements Command {
     public ResponseContext execute(RequestContext requestContext) {
         HttpSession session = requestContext.getHttpSession();
 
-        User user = (User) session.getAttribute("UserForRestorePassword");
-        Integer code = (Integer) session.getAttribute("CheckCode");
+        User user = (User) session.getAttribute("userForRestorePassword");
+        Integer code = (Integer) session.getAttribute("checkCode");
 
-        Integer inputCode = Integer.parseInt(requestContext.getParamList().get(1));
-        String inputPassword = requestContext.getParamList().get(2);
+        Integer inputCode = Integer.parseInt(requestContext.getParamMap().get("inputCheckCode"));
+        String inputPassword = requestContext.getParamMap().get("newPassword");
 
         if (inputCode.equals(code)) {
             user.setPassword(PasswordSecurityService.getInstance().doHashing(inputPassword));
@@ -37,7 +37,7 @@ public class ChangePasswordCommand implements Command {
                 log.error("Can't update user " + e);
             }
         } else {
-            requestContext.setAttribute("ErrorCode", true);
+            requestContext.setAttribute("errorCode", true);
             return NEW_PASSWORD_PAGE;
         }
 

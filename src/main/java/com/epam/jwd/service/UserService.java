@@ -1,9 +1,11 @@
 package com.epam.jwd.service;
 
 import com.epam.jwd.dao.impl.UserDao;
+import com.epam.jwd.entity.EnumUserRole;
 import com.epam.jwd.entity.EnumUserStatus;
 import com.epam.jwd.entity.Faculty;
 import com.epam.jwd.entity.User;
+import com.epam.jwd.entity.UserBuilder;
 import com.epam.jwd.entity.UserCriteria;
 import com.epam.jwd.exception.ValidatorException;
 import com.epam.jwd.validator.UserValidator;
@@ -44,6 +46,28 @@ public class UserService {
             }
         }
         return instance;
+    }
+
+    /**
+     * Method that creates {@link User}.
+     *
+     * @param params {@link Map<>} for {@link User}
+     * @return {@link User}
+     */
+    public User createByParams(final Map<String, String> params) {
+        return new User(new UserBuilder()
+                .setFirstname(params.get("firstname"))
+                .setLastname(params.get("lastname"))
+                .setLogin(params.get("login"))
+                .setPassword(params.get("password"))
+                .setEmail(params.get("email"))
+                .setAverageScore(Integer.parseInt(params.get("averageScore")))
+                .setRussianExamScore(Integer.parseInt(params.get("russianScore")))
+                .setMathExamScore(Integer.parseInt(params.get("mathScore")))
+                .setPhysicsExamScore(Integer.parseInt(params.get("physicsScore")))
+                .setFacultyId(Integer.parseInt(params.get("facultySelect")))
+                .setUserStatus(EnumUserStatus.UNKNOWN)
+                .setUserRole(EnumUserRole.CLIENT));
     }
 
     /**

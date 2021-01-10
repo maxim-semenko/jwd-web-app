@@ -35,9 +35,9 @@ public class UserTest {
 
         user.setId(1);
 
-        String about = "User{login='test6', password='2222', email='makss@gmail.com', userRole=CLIENT, " +
-                "firstname='Maxim', lastname='Semenko', averageScore=100, russianExamScore=90, " +
-                "mathExamScore=90, physicsExamScore=83, facultyId=3, id=1}";
+        String about = "User{login='test6', password='2222', email='makss@gmail.com', userRole=CLIENT, userStatus=null, " +
+                "firstname='Maxim', lastname='Semenko', averageScore=100, russianExamScore=90, mathExamScore=90, " +
+                "physicsExamScore=83, facultyId=3, id=1, sumExams=0}";
 
         Assert.assertEquals(about, user.toString());
 

@@ -33,10 +33,10 @@ public class LoginFilter implements Filter {
         final HttpSession session = req.getSession();
         session.setMaxInactiveInterval(1800);
 
-        if (session.getAttribute("User") == null && login != null && password != null) {
+        if (session.getAttribute("user") == null && login != null && password != null) {
             if (login.equals(AdminConfiguration.getInstance().getLogin())
                     && password.equals(AdminConfiguration.getInstance().getPassword())) {
-                session.setAttribute("User", AdminConfiguration.getInstance().getAdmin());
+                session.setAttribute("user", AdminConfiguration.getInstance().getAdmin());
             } else {
                 Optional<User> optionalUser = UserService
                         .getInstance()
@@ -45,10 +45,10 @@ public class LoginFilter implements Filter {
                                 .login(login)
                                 .password(password)
                                 .build());
-                optionalUser.ifPresent(user -> session.setAttribute("User", user));
+                optionalUser.ifPresent(user -> session.setAttribute("user", user));
             }
             session.setAttribute("notFound", false);
-            if (session.getAttribute("User") == null) {
+            if (session.getAttribute("user") == null) {
                 log.info("User is not login");
                 session.setAttribute("notFound", true);
             }

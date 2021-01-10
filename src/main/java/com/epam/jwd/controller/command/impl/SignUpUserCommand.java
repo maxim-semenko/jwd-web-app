@@ -13,11 +13,19 @@ import com.epam.jwd.exception.ValidatorException;
 import com.epam.jwd.service.UserService;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Class command that signUp {@link User}.
+ *
+ * @version 0.0.1
+ */
+
 @Log4j2
-public final class SignUpCommand implements Command {
+public final class SignUpUserCommand implements Command {
 
     private static final ResponseContext SIGNUP_PAGE = () -> PathToPages.SIGNUP_PAGE;
     private static final ResponseContext AFTER_SIGNUP_REDIRECT = () -> PathToPages.AFTER_SIGNUP_REDIRECT;
@@ -27,22 +35,23 @@ public final class SignUpCommand implements Command {
      * if there is such {@link User} a user. If not, then it tries
      * to create a new user and insert it into the database.
      *
-     * @param requestContext paramList from page
+     * @param requestContext {@link RequestContext} params
      * @return {@link ResponseContext} page
      */
     @Override
     public ResponseContext execute(final RequestContext requestContext) {
         requestContext.setAttribute("checkExistUser", false);
         requestContext.setAttribute("checkError", false);
+
+        final int countParam = 11;
         UserService userService = UserService.getInstance();
 
-        List<String> paramList = requestContext.getParamList();
-        final int countParam = 11;
-
-        if (paramList.size() == countParam) {
-            User user = createUser(paramList);
-            Optional<User> optionalUser =
-                    userService.getByCriteria(UserCriteria.builder().login(user.getLogin()).build());
+        // Needed params to create user
+        if (requestContext.getParamMap().size() == countParam) {
+            User user = userService.createByParams(requestContext.getParamMap());
+            Optional<User> optionalUser = userService.getByCriteria(UserCriteria.builder()
+                    .login(user.getLogin())
+                    .build());
 
             if (optionalUser.isPresent()) {
                 requestContext.setAttribute("checkExistUser", true);
@@ -58,28 +67,4 @@ public final class SignUpCommand implements Command {
         }
         return SIGNUP_PAGE;
     }
-
-    /**
-     * Method that takes parameters from {@link RequestContext} - requestContext,
-     * builds {@link User} user and return.
-     *
-     * @param paramList - requestContext from page
-     * @return {@link User} user
-     */
-    private User createUser(final List<String> paramList) {
-        return new User(new UserBuilder()
-                .setFirstname(paramList.get(1))
-                .setLastname(paramList.get(2))
-                .setLogin(paramList.get(3))
-                .setPassword(paramList.get(4))
-                .setEmail(paramList.get(5))
-                .setAverageScore(Integer.parseInt(paramList.get(6)))
-                .setRussianExamScore(Integer.parseInt(paramList.get(7)))
-                .setMathExamScore(Integer.parseInt(paramList.get(8)))
-                .setPhysicsExamScore(Integer.parseInt(paramList.get(9)))
-                .setFacultyId(Integer.parseInt(paramList.get(10)))
-                .setUserStatus(EnumUserStatus.UNKNOWN)
-                .setUserRole(EnumUserRole.CLIENT));
-    }
-
 }

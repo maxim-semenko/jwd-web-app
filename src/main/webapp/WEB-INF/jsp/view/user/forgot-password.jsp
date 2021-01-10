@@ -16,7 +16,7 @@
         <p class="lead text-muted"><fmt:message key="password.checkCode"/></p>
         <p>
         <div class="form-signin">
-        <c:if test="${requestScope.NotFoundUser == true}">
+        <c:if test="${requestScope.notFoundUser == true}">
             <div class="alert alert-danger alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <fmt:message key="home.error"/>
@@ -24,7 +24,7 @@
         </c:if>
             <form action="home?command=SEND_EMAIL_MESSAGE" method="post" class="needs-validation">
                 <label class="sr-only"><fmt:message key="home.login"/></label>
-                <input style="margin-bottom: 5px" class="form-control" type="text" name="check_login"
+                <input style="margin-bottom: 5px" class="form-control" type="text" name="checkLogin"
                        placeholder=
                        <fmt:message key="home.login"/>
                                pattern="^[a-zA-Z0-9]+$"

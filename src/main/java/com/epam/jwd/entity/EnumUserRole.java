@@ -24,4 +24,5 @@ public enum EnumUserRole {
                 return null;
         }
     }
+
 }

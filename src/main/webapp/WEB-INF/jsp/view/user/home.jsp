@@ -50,10 +50,8 @@
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_signin">
                         <fmt:message key="home.button.signin"/></button>
-
-
                 </form>
-                <a href="home?command=SIGN_UP" style="text-decoration: none">
+                <a href="home?command=SIGN_UP_PAGE" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
                             id="btn_signup"><fmt:message key="home.button.signup"/>
                     </button>

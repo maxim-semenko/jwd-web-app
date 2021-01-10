@@ -29,13 +29,14 @@ public class AcceptUserEditCommand implements Command {
     @Override
     public ResponseContext execute(RequestContext requestContext) {
         HttpSession session = requestContext.getHttpSession();
-        if (session.getAttribute("User") == null) {
+        UserService userService = UserService.getInstance();
+        if (session.getAttribute("user") == null) {
             session.setAttribute("isLogout", true);
             return HOME_REDIRECT;
         }
 
-        User oldUser = (User) session.getAttribute("User");
-        User newUser = createUser(requestContext.getParamList());
+        User oldUser = (User) session.getAttribute("user");
+        User newUser = userService.createByParams(requestContext.getParamMap());
         newUser.setUserStatus(oldUser.getUserStatus());
         newUser.setId(oldUser.getId());
 
@@ -45,42 +46,47 @@ public class AcceptUserEditCommand implements Command {
         }
 
         if (!requestContext.getParamList().get(4).equals(oldUser.getPassword())) {
-            newUser.setPassword(PasswordSecurityService.getInstance().doHashing(requestContext.getParamList().get(4)));
+            newUser.setPassword(PasswordSecurityService.
+                    getInstance().
+                    doHashing(requestContext.getParamList().get(4)));
         }
         try {
-            UserService.getInstance().update(newUser);
-            session.setAttribute("User", newUser);
+            userService.update(newUser);
+            session.setAttribute("user", newUser);
         } catch (ValidatorException e) {
             log.error("Can't update user" + e);
         }
         return USER_CABINET_REDIRECT;
     }
 
-    /**
-     * Method that takes parameters from {@link RequestContext} - requestContext,  builds user and return.
-     *
-     * @param paramList - requestContext from page
-     * @return {@link User} newUser
-     */
-    private User createUser(final List<String> paramList) {
-        return new User(new UserBuilder()
-                .setFirstname(paramList.get(1))
-                .setLastname(paramList.get(2))
-                .setLogin(paramList.get(3))
-                .setPassword(paramList.get(4))
-                .setEmail(paramList.get(5))
-                .setAverageScore(Integer.parseInt(paramList.get(6)))
-                .setRussianExamScore(Integer.parseInt(paramList.get(7)))
-                .setMathExamScore(Integer.parseInt(paramList.get(8)))
-                .setPhysicsExamScore(Integer.parseInt(paramList.get(9)))
-                .setFacultyId(Integer.parseInt(paramList.get(10)))
-                .setUserRole(EnumUserRole.CLIENT));
-    }
+//    /**
+//     * Method that takes parameters from {@link RequestContext} - requestContext,  builds user and return.
+//     *
+//     * @param paramList - requestContext from page
+//     * @return {@link User} newUser
+//     */
+//    private User createUser(final List<String> paramList) {
+//        return new User(new UserBuilder()
+//                .setFirstname(paramList.get(1))
+//                .setLastname(paramList.get(2))
+//                .setLogin(paramList.get(3))
+//                .setPassword(paramList.get(4))
+//                .setEmail(paramList.get(5))
+//                .setAverageScore(Integer.parseInt(paramList.get(6)))
+//                .setRussianExamScore(Integer.parseInt(paramList.get(7)))
+//                .setMathExamScore(Integer.parseInt(paramList.get(8)))
+//                .setPhysicsExamScore(Integer.parseInt(paramList.get(9)))
+//                .setFacultyId(Integer.parseInt(paramList.get(10)))
+//                .setUserRole(EnumUserRole.CLIENT));
+//    }
 
     public Optional<User> checkExistLogin(String newLogin, String oldLogin) {
         Optional<User> optional = Optional.empty();
         if (!newLogin.equals(oldLogin)) {
-            UserCriteria userCriteria = UserCriteria.builder().login(newLogin).build();
+            UserCriteria userCriteria = UserCriteria
+                    .builder()
+                    .login(newLogin)
+                    .build();
             optional = UserService.getInstance().getByCriteria(userCriteria);
         }
         return optional;

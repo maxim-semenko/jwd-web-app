@@ -17,12 +17,12 @@ public class RemoveEnrolledListCommand implements Command {
     @Override
     public ResponseContext execute(RequestContext requestContext) {
         HttpSession session = requestContext.getHttpSession();
-        if (session.getAttribute("User") != null) {
+        if (session.getAttribute("user") != null) {
             try {
                 UserService.getInstance().removeEnrolledList();
                 AppContext.isEnrolledList = false;
                 requestContext.setAttribute("enrolledList", false);
-                session.setAttribute("EnrolledList", false);
+                session.setAttribute("enrolledList", false);
             } catch (ValidatorException e) {
                 e.printStackTrace();
             }

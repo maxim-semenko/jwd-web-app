@@ -7,28 +7,28 @@
         <%@include file="../subsidiary/pink-box.jsp" %>
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><fmt:message key="home.login"/></strong>
-            ${sessionScope.User.login}
+            ${sessionScope.user.login}
         </p>
     </div>
     <div class="media text-muted pt-3">
         <%@include file="../subsidiary/pink-box.jsp" %>
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><fmt:message key="signup.email"/></strong>
-            ${sessionScope.User.email}
+            ${sessionScope.user.email}
         </p>
     </div>
     <div class="media text-muted pt-3">
         <%@include file="../subsidiary/pink-box.jsp" %>
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><fmt:message key="signup.firstname"/></strong>
-            ${sessionScope.User.firstname}
+            ${sessionScope.user.firstname}
         </p>
     </div>
     <div class="media text-muted pt-3">
         <%@include file="../subsidiary/pink-box.jsp" %>
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><fmt:message key="signup.lastname"/></strong>
-            ${sessionScope.User.lastname}
+            ${sessionScope.user.lastname}
         </p>
     </div>
 
@@ -37,16 +37,16 @@
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><fmt:message key="signup.faculty"/></strong>
             <c:choose>
-                <c:when test="${sessionScope.User.facultyId == 1}">
+                <c:when test="${sessionScope.user.facultyId == 1}">
                     <fmt:message key="label.faculty1"/>
                 </c:when>
-                <c:when test="${sessionScope.User.facultyId == 2}">
+                <c:when test="${sessionScope.user.facultyId == 2}">
                     <fmt:message key="label.faculty2"/>
                 </c:when>
-                <c:when test="${sessionScope.User.facultyId == 3}">
+                <c:when test="${sessionScope.user.facultyId == 3}">
                     <fmt:message key="label.faculty3"/>
                 </c:when>
-                <c:when test="${sessionScope.User.facultyId == 4}">
+                <c:when test="${sessionScope.user.facultyId == 4}">
                     <fmt:message key="label.faculty4"/>
                 </c:when>
             </c:choose>

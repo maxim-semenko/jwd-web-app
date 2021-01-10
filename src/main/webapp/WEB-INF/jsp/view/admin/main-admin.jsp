@@ -9,7 +9,7 @@
     <%@include file="../subsidiary/bootstrap.jsp" %>
 </head>
 <body>
-<c:if test="${sessionScope.User == null}">
+<c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
     <c:redirect url="home?command=HOME_PAGE"/>
 </c:if>

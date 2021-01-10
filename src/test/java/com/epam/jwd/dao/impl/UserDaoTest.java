@@ -50,7 +50,7 @@ public class UserDaoTest {
                 .setUserRole(EnumUserRole.CLIENT)
                 .setFacultyId(3));
 
-        UserService.getInstance().insert(user);
+        //UserService.getInstance().insert(user);
 
     }
 

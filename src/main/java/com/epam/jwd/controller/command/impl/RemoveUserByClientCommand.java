@@ -16,10 +16,10 @@ public class RemoveUserByClientCommand implements Command {
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
-        UserService.getInstance().removeById(Integer.parseInt(requestContext.getParamList().get(1)));
-        HttpSession session = requestContext.getHttpSession();
-        session.setAttribute("User", null);
-        log.info("User id = " + requestContext.getParamList().get(1) + " are removed by client");
+        UserService.getInstance().removeById(Integer.parseInt(requestContext.getParamMap().get("id")));
+        requestContext.getHttpSession().setAttribute("user", null);
+
+        log.info("User id = " + requestContext.getParamMap().get("id") + " are removed by client");
         return HOME_REDIRECT;
     }
 }

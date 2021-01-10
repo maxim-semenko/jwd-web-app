@@ -1,5 +1,8 @@
 package com.epam.jwd.context;
 
+import com.epam.jwd.context.config.AdminConfiguration;
+import com.epam.jwd.context.config.DataBaseConfiguration;
+import com.epam.jwd.context.config.EmailConfiguration;
 import com.epam.jwd.entity.User;
 import com.epam.jwd.pool.ConnectionPool;
 import com.epam.jwd.service.UserService;
@@ -23,6 +26,9 @@ public class AppContext {
 
     public void init() {
         initProperties();
+        AdminConfiguration.getInstance();
+        DataBaseConfiguration.getInstance();
+        EmailConfiguration.getInstance();
         User.COUNT_ID = UserService.getInstance().getMaxId();
         isEnrolledList = UserService.getInstance().getCountUserEnrolled() != 0;
     }

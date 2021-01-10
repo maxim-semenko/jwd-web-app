@@ -1,7 +1,7 @@
 package com.epam.jwd.controller.command.impl;
 
-import com.epam.jwd.context.config.AdminConfiguration;
 import com.epam.jwd.context.PathToPages;
+import com.epam.jwd.context.config.AdminConfiguration;
 import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
@@ -9,6 +9,9 @@ import com.epam.jwd.entity.User;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Class command that Sign in {@link User}
+ */
 public class SignInCommand implements Command {
 
     private static final ResponseContext USER_CABINET_REDIRECT = () -> PathToPages.USER_CABINET_REDIRECT;
@@ -22,7 +25,7 @@ public class SignInCommand implements Command {
         if ((boolean) session.getAttribute("notFound")) {
             return HOME_REDIRECT;
         }
-        User user = (User) session.getAttribute("User");
+        User user = (User) session.getAttribute("user");
         if (user.getLogin().equals(AdminConfiguration.getInstance().getLogin())
                 && user.getPassword().equals(AdminConfiguration.getInstance().getPassword())) {
             return ADMIN_CABINET_REDIRECT;

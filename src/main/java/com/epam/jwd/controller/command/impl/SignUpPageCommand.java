@@ -5,18 +5,12 @@ import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 
-/**
- * Class command that show forgot password page.
- *
- * @version 0.0.1
- */
+public class SignUpPageCommand implements Command {
 
-public class ForgotPasswordPageCommand implements Command {
-
-    private static final ResponseContext FORGOT_PASSWORD_PAGE = () -> PathToPages.FORGOT_PASSWORD_PAGE;
+    private static final ResponseContext SIGNUP_PAGE = () -> PathToPages.SIGNUP_PAGE;
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
-        return FORGOT_PASSWORD_PAGE;
+        return SIGNUP_PAGE;
     }
 }

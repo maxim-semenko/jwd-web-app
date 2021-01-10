@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<c:if test="${sessionScope.User == null}">
+<c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
     <c:redirect url="home?command=HOME_PAGE" />
 </c:if>
@@ -30,7 +30,7 @@
         <p>
         <div class="form-signin">
             <form action="home?command=REMOVE_USER_BY_CLIENT" method="post">
-                <label><input type="number" hidden name="id" value="${sessionScope.User.id}"></label>
+                <label><input type="number" hidden name="id" value="${sessionScope.user.id}"></label>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_signin">
                     <fmt:message key="user.confirmDelete.yes"/></button>
             </form>

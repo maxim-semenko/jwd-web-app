@@ -108,9 +108,9 @@ public final class ConnectionPool {
     /**
      * Method returns the size of available connection in pool.
      *
-     * @return {@link Integer} size of available connection in pool
+     * @return size of available connection in pool
      */
-    public Integer getAvailableConnections() {
+    public int getAvailableConnections() {
         return connectionQueue.size();
     }
 

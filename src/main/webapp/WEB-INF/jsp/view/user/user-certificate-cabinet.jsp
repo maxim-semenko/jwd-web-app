@@ -7,7 +7,7 @@
             <div class="d-flex justify-content-between align-items-center w-100">
                 <strong class="text-gray-dark"><fmt:message key="signup.averageScore"/></strong>
             </div>
-            <span class="d-block">${sessionScope.User.averageScore}</span>
+            <span class="d-block">${sessionScope.user.averageScore}</span>
         </div>
     </div>
     <div class="media text-muted pt-3">
@@ -16,7 +16,7 @@
             <div class="d-flex justify-content-between align-items-center w-100">
                 <strong class="text-gray-dark"><fmt:message key="signup.russianScore"/></strong>
             </div>
-            <span class="d-block">${sessionScope.User.russianExamScore}</span>
+            <span class="d-block">${sessionScope.user.russianExamScore}</span>
         </div>
     </div>
     <div class="media text-muted pt-3">
@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-between align-items-center w-100">
                 <strong class="text-gray-dark"><fmt:message key="signup.mathScore"/></strong>
             </div>
-            <span class="d-block">${sessionScope.User.mathExamScore}</span>
+            <span class="d-block">${sessionScope.user.mathExamScore}</span>
         </div>
     </div>
     <div class="media text-muted pt-3">
@@ -34,7 +34,7 @@
             <div class="d-flex justify-content-between align-items-center w-100">
                 <strong class="text-gray-dark"><fmt:message key="signup.physicsScore"/></strong>
             </div>
-            <span class="d-block">${sessionScope.User.physicsExamScore}</span>
+            <span class="d-block">${sessionScope.user.physicsExamScore}</span>
         </div>
     </div>
 </div>
