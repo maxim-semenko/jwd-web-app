@@ -8,7 +8,8 @@ import com.epam.jwd.service.FacultyService;
 
 public class EditFacultyPageCommand implements Command {
 
-    private static final ResponseContext EDIT_FACULTY_PAGE = () -> PathToPages.EDIT_FACULTY_PAGE;
+    private static final ResponseContext EDIT_FACULTY_PAGE
+            = new ResponseContextImpl(PathToPages.EDIT_FACULTY_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

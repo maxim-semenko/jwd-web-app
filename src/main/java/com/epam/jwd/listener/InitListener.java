@@ -21,7 +21,6 @@ public class InitListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         log.info("App init");
         AppContext.getInstance().init();
-
     }
 
     /**

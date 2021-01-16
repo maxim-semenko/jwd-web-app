@@ -12,7 +12,11 @@ import java.util.List;
 
 public class ShowEnrolledListCommand implements Command {
 
-    private static final ResponseContext SHOW_ENROLLED_LIST_PAGE = () -> PathToPages.SHOW_ENROLLED_LIST_PAGE;
+//    private static final ResponseContext SHOW_ENROLLED_LIST_PAGE = () -> PathToPages.SHOW_ENROLLED_LIST_PAGE;
+
+    private static final ResponseContext SHOW_ENROLLED_LIST_PAGE
+            = new ResponseContextImpl(PathToPages.SHOW_ENROLLED_LIST_PAGE, ResponseContext.ResponseType.FORWARD);
+
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

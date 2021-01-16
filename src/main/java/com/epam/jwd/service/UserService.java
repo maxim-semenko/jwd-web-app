@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
  *
  * @version 0.0.1
  */
+
 public class UserService {
 
     public static UserService instance;
@@ -227,7 +228,11 @@ public class UserService {
                 .findFirst();
     }
 
-
+    /**
+     * Method that return enrolled list.
+     *
+     * @return {@link List<User>} enrolled list
+     */
     public List<User> getEnrolledList() {
         List<User> userList = new ArrayList<>();
         Map<Integer, Integer> map = userDao.selectAllEnrolledList();

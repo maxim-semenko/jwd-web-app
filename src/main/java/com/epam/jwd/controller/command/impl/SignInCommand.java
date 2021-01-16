@@ -14,17 +14,16 @@ import javax.servlet.http.HttpSession;
  */
 public class SignInCommand implements Command {
 
-    private static final ResponseContext USER_CABINET_REDIRECT = () -> PathToPages.USER_CABINET_REDIRECT;
-    private static final ResponseContext HOME_REDIRECT = () -> PathToPages.HOME_REDIRECT;
-    private static final ResponseContext ADMIN_CABINET_REDIRECT = () -> PathToPages.ADMIN_CABINET_REDIRECT;
+    private static final ResponseContext USER_CABINET_REDIRECT
+            = new ResponseContextImpl(PathToPages.USER_CABINET_REDIRECT, ResponseContext.ResponseType.REDIRECT);
 
+    private static final ResponseContext ADMIN_CABINET_REDIRECT
+            = new ResponseContextImpl(PathToPages.ADMIN_CABINET_REDIRECT, ResponseContext.ResponseType.REDIRECT);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
         HttpSession session = requestContext.getHttpSession();
-        if ((boolean) session.getAttribute("notFound")) {
-            return HOME_REDIRECT;
-        }
+
         User user = (User) session.getAttribute("user");
         if (user.getLogin().equals(AdminConfiguration.getInstance().getLogin())
                 && user.getPassword().equals(AdminConfiguration.getInstance().getPassword())) {
@@ -32,4 +31,5 @@ public class SignInCommand implements Command {
         }
         return USER_CABINET_REDIRECT;
     }
+
 }

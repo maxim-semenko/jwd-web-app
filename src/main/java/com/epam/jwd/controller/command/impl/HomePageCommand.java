@@ -11,9 +11,10 @@ import javax.servlet.http.HttpSession;
  * Class command that show home page.
  */
 
-public final class HomeCommand implements Command {
+public final class HomePageCommand implements Command {
 
-    private static final ResponseContext HOME_PAGE = () -> PathToPages.HOME_PAGE;
+    private static final ResponseContextImpl HOME_PAGE
+            = new ResponseContextImpl(PathToPages.HOME_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

@@ -10,7 +10,8 @@ import javax.servlet.http.HttpSession;
 
 public class RemoveAllUsersCommand implements Command {
 
-    private static final ResponseContext ADMIN_CABINET_REDIRECT = () -> PathToPages.ADMIN_CABINET_REDIRECT;
+    private static final ResponseContext ADMIN_CABINET_REDIRECT
+            = new ResponseContextImpl(PathToPages.ADMIN_CABINET_REDIRECT, ResponseContext.ResponseType.REDIRECT);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

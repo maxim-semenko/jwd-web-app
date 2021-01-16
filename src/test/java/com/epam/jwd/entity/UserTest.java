@@ -16,6 +16,8 @@ public class UserTest {
             .setMathExamScore(0)
             .setPhysicsExamScore(83)
             .setUserRole(EnumUserRole.CLIENT)
+            .setUserStatus(EnumUserStatus.UNKNOWN)
+            .setId(1)
             .setFacultyId(3));
 
     @Test
@@ -81,5 +83,27 @@ public class UserTest {
     @Test
     public void getRussianExamScoreTest() {
         Assert.assertEquals(user.getRussianExamScore(), 10);
+    }
+
+    @Test
+    public void getUserStatus() {
+        Assert.assertEquals(user.getUserStatus(), EnumUserStatus.UNKNOWN);
+    }
+
+    @Test
+    public void getFacultyId() {
+        Assert.assertEquals(user.getFacultyId(), 3);
+    }
+
+    @Test
+    public void getId() {
+        user.setId(2);
+        Assert.assertEquals(user.getId(), 2);
+    }
+
+    @Test
+    public void getSumExams() {
+        user.setSumExams(400);
+        Assert.assertEquals(user.getSumExams(), 400);
     }
 }

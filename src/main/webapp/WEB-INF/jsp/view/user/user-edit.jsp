@@ -9,7 +9,7 @@
 </head>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=HOME_PAGE"/>
+    <c:redirect url="home?command=home"/>
 </c:if>
 <body>
 <div class="container">
@@ -26,7 +26,7 @@
                     <fmt:message key="signup.error"/>
                 </div>
             </c:if>
-            <form class="needs-validation" action="home?command=ACCEPT_USER_EDIT" method="post">
+            <form class="needs-validation" action="home?command=accept-user-edit" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName"><fmt:message key="signup.firstname"/></label>
@@ -139,7 +139,7 @@
                 </button>
             </form>
 
-            <form action="home?command=USER_CABINET" method="post">
+            <form action="home?command=cabinet" method="post">
                 <button class="btn btn-primary btn-lg btn-block" type="submit">
                     <fmt:message key="user.edit.cancel"/>
                 </button>

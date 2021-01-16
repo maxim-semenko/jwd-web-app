@@ -20,6 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @version 0.0.1
  */
+
 @Log4j2
 public class RestorePasswordEmailService implements EmailService {
 
@@ -56,7 +57,7 @@ public class RestorePasswordEmailService implements EmailService {
     @Override
     public void sendMessage(String address) throws MessagingException {
         code = generateCode();
-        log.info("Generated check code " + code + "for address " + address);
+        log.info("Generated check code " + code + " for address " + address);
 
         Session mailSession = Session.getDefaultInstance(emailConfiguration.getPropertiesSessionDefaultInstance());
         MimeMessage message = new MimeMessage(mailSession);

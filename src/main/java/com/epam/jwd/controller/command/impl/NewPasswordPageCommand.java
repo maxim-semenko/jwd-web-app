@@ -7,7 +7,8 @@ import com.epam.jwd.controller.command.ResponseContext;
 
 public class NewPasswordPageCommand implements Command {
 
-    private static final ResponseContext NEW_PASSWORD_PAGE =()-> PathToPages.NEW_PASSWORD_PAGE;
+    private static final ResponseContext NEW_PASSWORD_PAGE
+            = new ResponseContextImpl(PathToPages.NEW_PASSWORD_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

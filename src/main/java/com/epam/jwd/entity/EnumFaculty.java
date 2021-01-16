@@ -1,6 +1,5 @@
 package com.epam.jwd.entity;
 
-
 import com.epam.jwd.exception.UnknownEnumFacultyException;
 
 public enum EnumFaculty {

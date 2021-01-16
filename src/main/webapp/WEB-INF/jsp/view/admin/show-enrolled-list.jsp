@@ -11,7 +11,7 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=HOME_PAGE"/>
+    <c:redirect url="home?command=home"/>
 </c:if>
 
 <header>
@@ -29,7 +29,7 @@
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <a href="home?command=ADMIN_CABINET_PAGE" style="text-decoration: none">
+                <a href="home?command=admin" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
                             id="btn_signup"><fmt:message key="admin.back"/>
                     </button>

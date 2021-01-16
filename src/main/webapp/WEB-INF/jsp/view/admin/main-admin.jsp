@@ -11,7 +11,7 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=HOME_PAGE"/>
+    <c:redirect url="home?command=home"/>
 </c:if>
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
@@ -32,7 +32,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" action="home?command=GENERATE_ENROLLED_LIST" method="post">
+                    <form class="form-inline" action="home?command=generate-enrolled-list" method="post">
                         <button class="btn btn-success my-2 my-sm-0" type="submit"
                                 <c:if test="${requestScope.enrolledList == true}">
                                     disabled
@@ -47,7 +47,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" method="post" action="home?command=SHOW_ALL_USERS">
+                    <form class="form-inline" method="post" action="home?command=admin/all-users">
                         <button class="btn btn-success my-2 my-sm-0" type="submit"><fmt:message
                                 key="admin.showAllUsers"/></button>
                     </form>
@@ -58,7 +58,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" method="post" action="home?command=SHOW_ENROLLED_LIST">
+                    <form class="form-inline" method="post" action="home?command=admin/enrolled-list">
                         <button class="btn btn-success my-2 my-sm-0" type="submit"
                                 <c:if test="${requestScope.enrolledList == false}">
                                     disabled
@@ -72,7 +72,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" method="post" action="home?command=EDIT_FACULTY_PAGE">
+                    <form class="form-inline" method="post" action="home?command=cabinet/edit-faculty-page">
                         <button class="btn btn-primary my-2 my-sm-0" type="submit"
                                 <c:if test="${requestScope.enrolledList == true}">
                                     disabled
@@ -86,7 +86,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" method="post" action="home?command=SIGN_OUT">
+                    <form class="form-inline" method="post" action="home?command=sign-out">
                         <button class="btn btn-primary my-2 my-sm-0" type="submit">
                             <fmt:message key="admin.exit"/></button>
                     </form>
@@ -97,7 +97,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" action="home?command=REMOVE_ENROLLED_LIST" method="post">
+                    <form class="form-inline" action="home?command=remove-enrolled-list" method="post">
                         <button class="btn btn-danger my-2 my-sm-0" type="submit"
                                 <c:if test="${requestScope.enrolledList == false}">
                                     disabled
@@ -110,7 +110,7 @@
         <div class="media text-muted pt-3">
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <form class="form-inline" action="home?command=REMOVE_ALL_USERS" method="post">
+                    <form class="form-inline" action="home?command=remove-all-users" method="post">
                         <button class="btn btn-danger my-2 my-sm-0" type="submit">
                             <fmt:message key="admin.deleteAllUsers"/></button>
                     </form>

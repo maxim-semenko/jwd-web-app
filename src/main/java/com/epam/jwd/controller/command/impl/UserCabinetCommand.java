@@ -10,7 +10,8 @@ import javax.servlet.http.HttpSession;
 
 public class UserCabinetCommand implements Command {
 
-    private static final ResponseContext USER_CABINET_PAGE = () -> PathToPages.USER_CABINET_PAGE;
+    private static final ResponseContext USER_CABINET_PAGE =
+            new ResponseContextImpl(PathToPages.USER_CABINET_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

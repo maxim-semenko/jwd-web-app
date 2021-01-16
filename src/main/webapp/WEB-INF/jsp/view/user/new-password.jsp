@@ -22,10 +22,10 @@
                     <fmt:message key="password.error"/>
                 </div>
             </c:if>
-            <form class="needs-validation" action="home?command=CHANGE_PASSWORD" method="post">
+            <form class="needs-validation" action="home?command=change-password" method="post">
                 <label class="sr-only"></label>
                 <input style="margin-bottom: 5px" class="form-control" type="text" name="inputCheckCode"
-                       placeholder="Проверочный код"
+                       placeholder="<fmt:message key="home.checkCode"/>"
                        minlength="2" maxlength="25" required>
 
                 <label class="sr-only"><fmt:message key="password.header"/></label>

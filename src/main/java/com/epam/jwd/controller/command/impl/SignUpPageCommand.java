@@ -7,7 +7,8 @@ import com.epam.jwd.controller.command.ResponseContext;
 
 public class SignUpPageCommand implements Command {
 
-    private static final ResponseContext SIGNUP_PAGE = () -> PathToPages.SIGNUP_PAGE;
+    private static final ResponseContext SIGNUP_PAGE
+            = new ResponseContextImpl(PathToPages.SIGNUP_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

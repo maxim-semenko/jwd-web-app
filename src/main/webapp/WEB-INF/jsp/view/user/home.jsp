@@ -36,7 +36,7 @@
             <p class="lead text-muted"><fmt:message key="home.label.description"/></p>
             <p>
             <div class="form-signin">
-                <form class="needs-validation" action="home?command=SIGN_IN" method="post">
+                <form class="needs-validation" action="home?command=sign-in" method="post">
                     <label class="sr-only"><fmt:message key="home.login"/></label>
                     <input style="margin-bottom: 5px" class="form-control" type="text" name="signIn_login"
                            placeholder= <fmt:message key="home.login"/>
@@ -51,13 +51,13 @@
                     <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_signin">
                         <fmt:message key="home.button.signin"/></button>
                 </form>
-                <a href="home?command=SIGN_UP_PAGE" style="text-decoration: none">
+                <a href="home?command=sign-up" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
                             id="btn_signup"><fmt:message key="home.button.signup"/>
                     </button>
                 </a>
                 <br>
-                <a href="home?command=FORGOT_PASSWORD_PAGE"><fmt:message key="home.forgotPassword"/></a>
+                <a href="home?command=forgot-password"><fmt:message key="home.forgotPassword"/></a>
             </div>
         </div>
     </section>

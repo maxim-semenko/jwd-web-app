@@ -9,7 +9,7 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=HOME_PAGE"/>
+    <c:redirect url="home?command=home"/>
 </c:if>
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
@@ -26,7 +26,7 @@
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <a href="home?command=ADMIN_CABINET_PAGE" style="text-decoration: none">
+                <a href="home?command=admin" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
                         <fmt:message key="admin.back"/>
                     </button>
@@ -68,7 +68,7 @@
                 <td><c:out value="${user.facultyId}"/></td>
                 <td><c:out value="${user.userRole}"/></td>
                 <td>
-                    <form action="home?command=REMOVE_USER_BY_ADMIN" method="post">
+                    <form action="home?command=remove-user-by-admin" method="post">
                         <label><input type="number" hidden name="id" value="${user.id}"></label>
                         <button class="btn btn-success btn-block" type="submit">
                             <fmt:message key="admin.allUsers.delete"/>

@@ -48,6 +48,11 @@ public class MainController extends HttpServlet {
         final Command command = CommandFactory.getCommand(req.getParameter("command"));
         final ResponseContext responseContext = command.execute(new CustomRequestContext(req));
         final RequestDispatcher requestDispatcher = req.getRequestDispatcher(responseContext.getPage());
-        requestDispatcher.forward(req, resp);
+
+        if (responseContext.getResponseType() == ResponseContext.ResponseType.REDIRECT) {
+            resp.sendRedirect(responseContext.getPage());
+        } else {
+            requestDispatcher.forward(req, resp);
+        }
     }
 }

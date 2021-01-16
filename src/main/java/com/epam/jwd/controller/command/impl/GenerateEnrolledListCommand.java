@@ -18,7 +18,8 @@ import javax.servlet.http.HttpSession;
 
 public class GenerateEnrolledListCommand implements Command {
 
-    private static final ResponseContext ADMIN_CABINET_PAGE = () -> PathToPages.ADMIN_CABINET_PAGE;
+    private static final ResponseContext ADMIN_CABINET_PAGE
+            = new ResponseContextImpl(PathToPages.ADMIN_CABINET_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

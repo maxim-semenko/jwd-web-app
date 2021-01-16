@@ -22,7 +22,7 @@
                 <fmt:message key="home.error"/>
             </div>
         </c:if>
-            <form action="home?command=SEND_EMAIL_MESSAGE" method="post" class="needs-validation">
+            <form action="home?command=send-message" method="post" class="needs-validation">
                 <label class="sr-only"><fmt:message key="home.login"/></label>
                 <input style="margin-bottom: 5px" class="form-control" type="text" name="checkLogin"
                        placeholder=

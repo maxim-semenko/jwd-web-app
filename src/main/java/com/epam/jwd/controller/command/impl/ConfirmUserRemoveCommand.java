@@ -7,7 +7,8 @@ import com.epam.jwd.controller.command.ResponseContext;
 
 public class ConfirmUserRemoveCommand implements Command {
 
-    private static final ResponseContext CONFIRM_USER_REMOVE_PAGE = () -> PathToPages.CONFIRM_USER_REMOVE_PAGE;
+    private static final ResponseContext CONFIRM_USER_REMOVE_PAGE
+            = new ResponseContextImpl(PathToPages.CONFIRM_USER_REMOVE_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

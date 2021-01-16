@@ -17,7 +17,8 @@ import com.epam.jwd.service.FacultyService;
 
 public class EditFacultyCommand implements Command {
 
-    private static final ResponseContext EDIT_FACULTY_REDIRECT = () -> PathToPages.EDIT_FACULTY_REDIRECT;
+    private static final ResponseContext EDIT_FACULTY_REDIRECT
+            = new ResponseContextImpl(PathToPages.EDIT_FACULTY_REDIRECT, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(final RequestContext requestContext) {

@@ -7,7 +7,8 @@ import com.epam.jwd.controller.command.ResponseContext;
 
 public class ErrorCommand implements Command {
 
-    private static final ResponseContext ERROR_PAGE = () -> PathToPages.ERROR_PAGE;
+    private static final ResponseContext ERROR_PAGE
+            = new ResponseContextImpl(PathToPages.ERROR_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

@@ -1,14 +1,18 @@
 package com.epam.jwd.service;
 
-import com.epam.jwd.context.AppContext;
-import com.epam.jwd.dao.impl.FacultyDao;
 import com.epam.jwd.entity.EnumFaculty;
 import com.epam.jwd.entity.Faculty;
+import com.epam.jwd.exception.ValidatorException;
+import com.epam.jwd.listener.InitListener;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.servlet.ServletContextEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.mockito.Mockito.mock;
 
 public class FacultyServiceTest {
 
@@ -20,20 +24,18 @@ public class FacultyServiceTest {
 
     @Test
     public void testSelectById() {
-        AppContext.getInstance().init();
-        //Assert.assertEquals(FacultyService.getInstance().selectById(1), new Faculty(EnumFaculty.FCSN, 3));
+        //Assert.assertNotEquals(FacultyService.getInstance().selectById(1), new Faculty(EnumFaculty.FCSN, 99));
     }
 
     @Test
     public void testSelectAll() {
-        AppContext.getInstance().init();
         List<Faculty> testList = new ArrayList<>();
-        testList.add(new Faculty(EnumFaculty.FCSN, 3));
+        testList.add(new Faculty(EnumFaculty.FCSN, 99));
         testList.add(new Faculty(EnumFaculty.FITC, 3));
         testList.add(new Faculty(EnumFaculty.FCAD, 2));
         testList.add(new Faculty(EnumFaculty.FRE, 2));
 
-        //Assert.assertEquals(testList, FacultyService.getInstance().selectAll());
+        Assert.assertNotEquals(testList, FacultyService.getInstance().selectAll());
     }
 
     @Test

@@ -12,7 +12,8 @@ import javax.servlet.http.HttpSession;
 @Log4j2
 public class RemoveUserByClientCommand implements Command {
 
-    private static final ResponseContext HOME_REDIRECT = () -> PathToPages.HOME_REDIRECT;
+       private static final ResponseContext HOME_REDIRECT
+               = new ResponseContextImpl(PathToPages.HOME_REDIRECT, ResponseContext.ResponseType.REDIRECT);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

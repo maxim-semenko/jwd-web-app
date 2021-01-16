@@ -24,13 +24,13 @@ public class PathToPages {
     public static final String SHOW_ENROLLED_LIST_PAGE = "/WEB-INF/jsp/view/admin/show-enrolled-list.jsp";
     public static final String EDIT_FACULTY_PAGE = "/WEB-INF/jsp/view/admin/edit-faculty.jsp";
 
-    // Redirect
-    public static final String HOME_REDIRECT = "/WEB-INF/jsp/view/redirect/home-redirect.jsp";
-    public static final String USER_CABINET_REDIRECT = "/WEB-INF/jsp/view/redirect/user-cabinet-redirect.jsp";
-    public static final String ADMIN_CABINET_REDIRECT = "/WEB-INF/jsp/view/redirect/admin-cabinet-redirect.jsp";
-    public static final String AFTER_SIGNUP_REDIRECT = "/WEB-INF/jsp/view/redirect/after-signup-redirect.jsp";
-    public static final String AFTER_SEND_MESSAGE_PAGE_REDIRECT = "/WEB-INF/jsp/view/redirect/after-send-message-redirect.jsp";
-    public static final String EDIT_FACULTY_REDIRECT = "/WEB-INF/jsp/view/redirect/edit-faculty-redirect.jsp";
+    // Redirect-commands
+    public static final String HOME_REDIRECT = "/home?command=home";
+    public static final String USER_CABINET_REDIRECT = "/home?command=cabinet";
+    public static final String ADMIN_CABINET_REDIRECT = "/home?command=admin";
+    public static final String AFTER_SIGNUP_REDIRECT = "/home?command=after-sign-up";
+    public static final String AFTER_SEND_MESSAGE_PAGE_REDIRECT = "/home?command=new-password";
+    public static final String EDIT_FACULTY_REDIRECT = "/home?command=cabinet/edit-faculty-page";
 
     // Subsidiary pages
     public static final String ERROR_PAGE = "/WEB-INF/jsp/view/subsidiary/error.jsp";

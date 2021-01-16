@@ -27,8 +27,11 @@ import java.util.Optional;
 @Log4j2
 public final class SignUpUserCommand implements Command {
 
-    private static final ResponseContext SIGNUP_PAGE = () -> PathToPages.SIGNUP_PAGE;
-    private static final ResponseContext AFTER_SIGNUP_REDIRECT = () -> PathToPages.AFTER_SIGNUP_REDIRECT;
+    private static final ResponseContext SIGNUP_PAGE
+            = new ResponseContextImpl(PathToPages.SIGNUP_PAGE, ResponseContext.ResponseType.FORWARD);
+
+    private static final ResponseContext AFTER_SIGNUP_REDIRECT
+            = new ResponseContextImpl(PathToPages.AFTER_SIGNUP_REDIRECT, ResponseContext.ResponseType.REDIRECT);
 
     /**
      * Method receives {@link RequestContext} requestContext and checks
@@ -52,7 +55,6 @@ public final class SignUpUserCommand implements Command {
             Optional<User> optionalUser = userService.getByCriteria(UserCriteria.builder()
                     .login(user.getLogin())
                     .build());
-
             if (optionalUser.isPresent()) {
                 requestContext.setAttribute("checkExistUser", true);
             } else {

@@ -15,8 +15,11 @@ import javax.servlet.http.HttpSession;
 @Log4j2
 public class ChangePasswordCommand implements Command {
 
-    private static final ResponseContext HOME_REDIRECT = () -> PathToPages.HOME_REDIRECT;
-    private static final ResponseContext NEW_PASSWORD_PAGE =()-> PathToPages.NEW_PASSWORD_PAGE;
+    private static final ResponseContext HOME_REDIRECT
+            = new ResponseContextImpl(PathToPages.HOME_REDIRECT, ResponseContext.ResponseType.REDIRECT);
+
+    private static final ResponseContext NEW_PASSWORD_PAGE
+            = new ResponseContextImpl(PathToPages.NEW_PASSWORD_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
@@ -40,7 +43,6 @@ public class ChangePasswordCommand implements Command {
             requestContext.setAttribute("errorCode", true);
             return NEW_PASSWORD_PAGE;
         }
-
         return HOME_REDIRECT;
     }
 }

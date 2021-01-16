@@ -8,8 +8,8 @@ import com.epam.jwd.service.UserService;
 
 public class RemoveUserByAdminCommand implements Command {
 
-    public static final ResponseContext ALL_USERS_PAGE = () -> PathToPages.SHOW_ALL_USERS_PAGE;
-
+    public static final ResponseContext ALL_USERS_PAGE
+            = new ResponseContextImpl(PathToPages.SHOW_ALL_USERS_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

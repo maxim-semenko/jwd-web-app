@@ -60,7 +60,7 @@
 
 <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-        <a href="home?command=HOME_PAGE" class="navbar-brand d-flex align-items-center">
+        <a href="home?command=home" class="navbar-brand d-flex align-items-center">
             <img class="mb-4" src="img/mortarboard.png" width="64" height="64">
             <strong><fmt:message key="home.logo"/></strong>
         </a>

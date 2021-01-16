@@ -22,9 +22,14 @@ import java.util.Optional;
 @Log4j2
 public class AcceptUserEditCommand implements Command {
 
-    private static final ResponseContext USER_CABINET_REDIRECT = () -> PathToPages.USER_CABINET_REDIRECT;
-    private static final ResponseContext HOME_REDIRECT = () -> PathToPages.HOME_REDIRECT;
-    private static final ResponseContext USER_EDIT_PAGE = () -> PathToPages.USER_EDIT_PAGE;
+    private static final ResponseContext USER_CABINET_REDIRECT
+            = new ResponseContextImpl(PathToPages.USER_CABINET_REDIRECT, ResponseContext.ResponseType.REDIRECT);
+
+    private static final ResponseContext HOME_REDIRECT
+            = new ResponseContextImpl(PathToPages.HOME_REDIRECT, ResponseContext.ResponseType.REDIRECT);
+
+    private static final ResponseContext USER_EDIT_PAGE
+            = new ResponseContextImpl(PathToPages.USER_EDIT_PAGE, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
@@ -58,27 +63,6 @@ public class AcceptUserEditCommand implements Command {
         }
         return USER_CABINET_REDIRECT;
     }
-
-//    /**
-//     * Method that takes parameters from {@link RequestContext} - requestContext,  builds user and return.
-//     *
-//     * @param paramList - requestContext from page
-//     * @return {@link User} newUser
-//     */
-//    private User createUser(final List<String> paramList) {
-//        return new User(new UserBuilder()
-//                .setFirstname(paramList.get(1))
-//                .setLastname(paramList.get(2))
-//                .setLogin(paramList.get(3))
-//                .setPassword(paramList.get(4))
-//                .setEmail(paramList.get(5))
-//                .setAverageScore(Integer.parseInt(paramList.get(6)))
-//                .setRussianExamScore(Integer.parseInt(paramList.get(7)))
-//                .setMathExamScore(Integer.parseInt(paramList.get(8)))
-//                .setPhysicsExamScore(Integer.parseInt(paramList.get(9)))
-//                .setFacultyId(Integer.parseInt(paramList.get(10)))
-//                .setUserRole(EnumUserRole.CLIENT));
-//    }
 
     public Optional<User> checkExistLogin(String newLogin, String oldLogin) {
         Optional<User> optional = Optional.empty();
