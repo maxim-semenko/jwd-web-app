@@ -5,8 +5,6 @@ import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 
-import javax.servlet.http.HttpSession;
-
 /**
  * Class command that show home page.
  */

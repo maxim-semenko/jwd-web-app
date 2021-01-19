@@ -2,8 +2,14 @@ package com.epam.jwd.entity;
 
 import lombok.Getter;
 
+/**
+ * User-builder to create {@link User}.
+ * Pattern builder
+ *
+ * @version 0.0.1
+ */
 @Getter
-public class UserBuilder{
+public class UserBuilder {
     private String firstname;
     private String lastname;
     private int averageScore;

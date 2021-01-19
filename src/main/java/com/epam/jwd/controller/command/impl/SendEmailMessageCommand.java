@@ -11,10 +11,16 @@ import com.epam.jwd.service.UserService;
 import lombok.extern.log4j.Log4j2;
 
 import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 import java.util.Optional;
+
+/**
+ * Class command that send email message to {@link User}
+ * with check code for restore password.
+ *
+ * @version 0.0.1
+ */
 
 @Log4j2
 public class SendEmailMessageCommand implements Command {

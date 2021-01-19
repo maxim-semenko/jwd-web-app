@@ -5,6 +5,12 @@ import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 
+/**
+ * Class command that show 404 error page.
+ *
+ * @version 0.0.1
+ */
+
 public class ErrorCommand implements Command {
 
     private static final ResponseContext ERROR_PAGE

@@ -4,7 +4,14 @@ import com.epam.jwd.context.PathToPages;
 import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
+import com.epam.jwd.entity.User;
 import com.epam.jwd.service.UserService;
+
+/**
+ * Class command that remove {@link User} by admin.
+ *
+ * @version 0.0.1
+ */
 
 public class RemoveUserByAdminCommand implements Command {
 

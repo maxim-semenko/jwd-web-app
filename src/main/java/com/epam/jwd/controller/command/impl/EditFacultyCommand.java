@@ -22,8 +22,9 @@ public class EditFacultyCommand implements Command {
 
     @Override
     public ResponseContext execute(final RequestContext requestContext) {
-        Faculty faculty = FacultyService.getInstance().selectById(Integer.parseInt(requestContext.getParamList().get(2)));
-        faculty.setCountPlaces(Integer.parseInt(requestContext.getParamList().get(1)));
+        Faculty faculty = FacultyService.getInstance()
+                .selectById(Integer.parseInt(requestContext.getParamMap().get("id")));
+        faculty.setCountPlaces(Integer.parseInt(requestContext.getParamMap().get("countPlaces")));
         try {
             FacultyService.getInstance().update(faculty);
         } catch (ValidatorException e) {

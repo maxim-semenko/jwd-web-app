@@ -4,24 +4,28 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * Class that helps to find {@link User} in database by criteria.
+ */
+
 @Builder
 @ToString
 @Getter
 public class UserCriteria extends Entity {
 
-    private String login;
-    private String password;
-    private String email;
-    private EnumUserRole userRole;
+    private final String login;
+    private final String password;
+    private final String email;
+    private final EnumUserRole userRole;
 
-    private String firstname;
-    private String lastname;
-    private int averageScore;
-    private int russianExamScore;
-    private int mathExamScore;
-    private int physicsExamScore;
-    private int facultyId;
+    private final String firstname;
+    private final String lastname;
+    private final int averageScore;
+    private final int russianExamScore;
+    private final int mathExamScore;
+    private final int physicsExamScore;
+    private final int facultyId;
 
-    private int id;
-    private int sumExams;
+    private final int id;
+    private final int sumExams;
 }

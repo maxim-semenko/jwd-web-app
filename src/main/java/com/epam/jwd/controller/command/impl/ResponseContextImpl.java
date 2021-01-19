@@ -2,8 +2,13 @@ package com.epam.jwd.controller.command.impl;
 
 import com.epam.jwd.controller.command.ResponseContext;
 
-public class ResponseContextImpl implements ResponseContext {
+/**
+ * Class that store path for jsp page and responseType.
+ *
+ * @version 0.0.1
+ */
 
+public class ResponseContextImpl implements ResponseContext {
     String page;
     ResponseType responseType;
 

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Class command that Sign in {@link User}
  */
+
 public class SignInCommand implements Command {
 
     private static final ResponseContext USER_CABINET_REDIRECT

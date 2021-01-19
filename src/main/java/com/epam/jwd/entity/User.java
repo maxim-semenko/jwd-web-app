@@ -2,9 +2,17 @@ package com.epam.jwd.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * POJO class - user.
+ *
+ * @version 0.0.1
+ */
 
 @Getter
 @Setter
+@ToString
 public class User extends Entity {
 
     public static int COUNT_ID = 0;
@@ -44,23 +52,4 @@ public class User extends Entity {
     }
 
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", userRole=" + userRole +
-                ", userStatus=" + userStatus +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", averageScore=" + averageScore +
-                ", russianExamScore=" + russianExamScore +
-                ", mathExamScore=" + mathExamScore +
-                ", physicsExamScore=" + physicsExamScore +
-                ", facultyId=" + facultyId +
-                ", id=" + id +
-                ", sumExams=" + sumExams +
-                '}';
-    }
 }

@@ -11,7 +11,7 @@ import com.epam.jwd.service.UserService;
 import javax.servlet.http.HttpSession;
 
 /**
- * Class command that generate enrolled list.
+ * Class command that generate {@link java.util.List} enrolled list.
  *
  * @version 0.0.1
  */

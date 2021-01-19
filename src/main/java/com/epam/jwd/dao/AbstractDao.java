@@ -20,6 +20,8 @@ public interface AbstractDao<T> {
 
     boolean removeById(Integer id) throws UnknownMethodException;
 
+    int getMaxId() throws UnknownMethodException;
+
     default Connection getConnection() {
         Connection connection = null;
         try {
@@ -29,7 +31,4 @@ public interface AbstractDao<T> {
         }
         return connection;
     }
-
-    int getMaxId() throws UnknownMethodException;
-
 }

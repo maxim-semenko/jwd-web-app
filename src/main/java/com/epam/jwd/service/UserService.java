@@ -160,16 +160,16 @@ public class UserService {
     public void insertToEnrolledList(List<User> userList) throws ValidatorException {
         prepareUsersForEntrant(userList);
         userList = sort(userList);
-        List<User> tempList = new ArrayList<>();
+        List<User> enrolledList = new ArrayList<>();
         for (Faculty faculty : FacultyService.getInstance().selectAll()) {
             List<User> list = userList
                     .stream()
                     .filter(user -> user.getFacultyId() == faculty.getType().getId())
                     .limit(faculty.getCountPlaces())
                     .collect(Collectors.toList());
-            tempList.addAll(list);
+            enrolledList.addAll(list);
         }
-        for (User user : tempList) {
+        for (User user : enrolledList) {
             user.setUserStatus(EnumUserStatus.ENROLLED);
             update(user);
             userDao.insertToEnrolledList(user);
@@ -200,7 +200,7 @@ public class UserService {
      * @param user {@link User}
      * @return {@link Integer} sum exams
      */
-    public Integer getSumExams(User user) {
+    private Integer getSumExams(User user) {
         return user.getAverageScore()
                 + user.getRussianExamScore()
                 + user.getMathExamScore()

@@ -6,6 +6,12 @@ import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 import com.epam.jwd.service.FacultyService;
 
+/**
+ * Class command that show page with edit faculties.
+ *
+ * @version 0.0.1
+ */
+
 public class EditFacultyPageCommand implements Command {
 
     private static final ResponseContext EDIT_FACULTY_PAGE

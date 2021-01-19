@@ -16,12 +16,12 @@
         <p class="lead text-muted"><fmt:message key="password.checkCode"/></p>
         <p>
         <div class="form-signin">
-        <c:if test="${requestScope.notFoundUser == true}">
-            <div class="alert alert-danger alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <fmt:message key="home.error"/>
-            </div>
-        </c:if>
+            <c:if test="${requestScope.notFoundUser == true}">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <fmt:message key="home.error"/>
+                </div>
+            </c:if>
             <form action="home?command=send-message" method="post" class="needs-validation">
                 <label class="sr-only"><fmt:message key="home.login"/></label>
                 <input style="margin-bottom: 5px" class="form-control" type="text" name="checkLogin"

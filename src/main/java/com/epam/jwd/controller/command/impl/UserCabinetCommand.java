@@ -5,8 +5,13 @@ import com.epam.jwd.context.PathToPages;
 import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
+import com.epam.jwd.entity.User;
 
-import javax.servlet.http.HttpSession;
+/**
+ * Class command that open user cabinet page {@link User}.
+ *
+ * @version 0.0.1
+ */
 
 public class UserCabinetCommand implements Command {
 

@@ -4,19 +4,12 @@ import com.epam.jwd.context.PathToPages;
 import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
-import com.epam.jwd.entity.User;
 import com.epam.jwd.service.UserService;
-
-import javax.servlet.http.HttpSession;
-import java.util.List;
 
 public class ShowEnrolledListCommand implements Command {
 
-//    private static final ResponseContext SHOW_ENROLLED_LIST_PAGE = () -> PathToPages.SHOW_ENROLLED_LIST_PAGE;
-
     private static final ResponseContext SHOW_ENROLLED_LIST_PAGE
             = new ResponseContextImpl(PathToPages.SHOW_ENROLLED_LIST_PAGE, ResponseContext.ResponseType.FORWARD);
-
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {

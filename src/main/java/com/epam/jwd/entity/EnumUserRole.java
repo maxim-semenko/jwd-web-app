@@ -1,5 +1,11 @@
 package com.epam.jwd.entity;
 
+/**
+ * Class enum, which assigns the role to the {@link User}.
+ *
+ * @version 0.0.1
+ */
+
 public enum EnumUserRole {
     ADMIN(1),
     CLIENT(2);

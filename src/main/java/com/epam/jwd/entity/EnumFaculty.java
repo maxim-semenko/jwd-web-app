@@ -2,6 +2,12 @@ package com.epam.jwd.entity;
 
 import com.epam.jwd.exception.UnknownEnumFacultyException;
 
+/**
+ * Class enum - type of {@link Faculty}.
+ *
+ * @version 0.0.1
+ */
+
 public enum EnumFaculty {
     FCSN(1), // Faculty of Computer Systems and Networks.
     FITC(2), // Faculty of Information Technologies and Controls.

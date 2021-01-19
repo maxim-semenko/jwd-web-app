@@ -4,18 +4,12 @@ import com.epam.jwd.context.PathToPages;
 import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
-import com.epam.jwd.entity.EnumUserRole;
-import com.epam.jwd.entity.EnumUserStatus;
 import com.epam.jwd.entity.User;
-import com.epam.jwd.entity.UserBuilder;
 import com.epam.jwd.entity.UserCriteria;
 import com.epam.jwd.exception.ValidatorException;
 import com.epam.jwd.service.UserService;
 import lombok.extern.log4j.Log4j2;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /**

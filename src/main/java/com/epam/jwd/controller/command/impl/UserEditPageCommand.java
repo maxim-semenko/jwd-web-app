@@ -4,8 +4,13 @@ import com.epam.jwd.context.PathToPages;
 import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
+import com.epam.jwd.entity.User;
 
-import javax.servlet.annotation.WebServlet;
+/**
+ * Class command that open user edit page for edit {@link User}.
+ *
+ * @version 0.0.1
+ */
 
 public class UserEditPageCommand implements Command {
 

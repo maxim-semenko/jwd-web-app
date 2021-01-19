@@ -8,6 +8,12 @@ import com.epam.jwd.service.UserService;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Class command that remove all users.
+ *
+ * @version 0.0.1
+ */
+
 public class RemoveAllUsersCommand implements Command {
 
     private static final ResponseContext ADMIN_CABINET_REDIRECT
