@@ -181,7 +181,7 @@ public class UserService {
      *
      * @return {@link Integer} id
      */
-    public Integer getMaxId() {
+    public int getMaxId() {
         return userDao.getMaxId();
     }
 
@@ -200,7 +200,7 @@ public class UserService {
      * @param user {@link User}
      * @return {@link Integer} sum exams
      */
-    private Integer getSumExams(User user) {
+    public Integer getSumExams(User user) {
         return user.getAverageScore()
                 + user.getRussianExamScore()
                 + user.getMathExamScore()

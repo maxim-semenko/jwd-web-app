@@ -12,6 +12,12 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Class command that change {@link User} password.
+ *
+ * @version 0.0.1
+ */
+
 @Log4j2
 public class ChangePasswordCommand implements Command {
 

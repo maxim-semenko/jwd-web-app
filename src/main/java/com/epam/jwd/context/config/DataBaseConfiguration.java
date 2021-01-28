@@ -1,5 +1,6 @@
 package com.epam.jwd.context.config;
 
+import com.epam.jwd.context.AppContext;
 import com.epam.jwd.util.DataBasePropertiesReaderUtil;
 import lombok.Getter;
 import lombok.ToString;
@@ -24,13 +25,13 @@ public final class DataBaseConfiguration {
     private static DataBaseConfiguration instance;
     private static final ReentrantLock LOCK = new ReentrantLock();
     private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
-    private static final Logger LOGGER = Logger.getLogger(DataBaseConfiguration.class);
 
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String HOST = "host";
     private static final String PORT = "port";
     private static final String NAME = "name";
+    private static final String TEST_NAME = "testname";
     private static final String DRIVER = "driver";
     private static final String JDBC = "jdbc";
     private static final String POOL_SIZE = "poolsize";
@@ -43,6 +44,7 @@ public final class DataBaseConfiguration {
     private String driver;
     private String jdbc;
     private int poolSize;
+
 
     public static DataBaseConfiguration getInstance() {
         if (!INSTANCE_CREATED.get()) {
@@ -72,13 +74,21 @@ public final class DataBaseConfiguration {
         instance.password = DataBasePropertiesReaderUtil.resourceBundle.getString(PASSWORD);
         instance.host = DataBasePropertiesReaderUtil.resourceBundle.getString(HOST);
         instance.port = DataBasePropertiesReaderUtil.resourceBundle.getString(PORT);
-        instance.name = DataBasePropertiesReaderUtil.resourceBundle.getString(NAME);
+
+        instance.name = AppContext.getType() ==
+                AppContext.Type.PRODUCTION ?
+                DataBasePropertiesReaderUtil.resourceBundle.getString(NAME) :
+                DataBasePropertiesReaderUtil.resourceBundle.getString(TEST_NAME);
+
+        System.out.println("NAME = " + instance.name);
+
         instance.driver = DataBasePropertiesReaderUtil.resourceBundle.getString(DRIVER);
         instance.jdbc = DataBasePropertiesReaderUtil.resourceBundle.getString(JDBC);
         instance.poolSize = Integer.parseInt(DataBasePropertiesReaderUtil.resourceBundle.getString(POOL_SIZE));
 
         return instance;
     }
+
 
     /**
      * Method that build and return JDBC url.
@@ -88,5 +98,6 @@ public final class DataBaseConfiguration {
     public String getJdbcUrl() {
         return jdbc + host + ":" + port + "/" + name;
     }
+
 
 }

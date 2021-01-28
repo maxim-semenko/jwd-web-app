@@ -15,7 +15,10 @@ import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 /**
+ * Class command that get accept and
+ * edit {@link User} user data.
  *
+ * @version 0.0.1
  */
 
 @Log4j2

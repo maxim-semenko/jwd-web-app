@@ -23,6 +23,7 @@ public class FacultyDao implements AbstractDao<Faculty> {
     private static final ReentrantLock lock = new ReentrantLock();
     private static final AtomicBoolean instanceCreated = new AtomicBoolean(false);
     private static final FacultyResultSet facultyResultSet = FacultyResultSet.getInstance();
+
     private static FacultyDao instance;
 
     private static final String SQL_INSERT_FACULTY = "INSERT INTO faculty_type (id, name, count_places) VALUES (?,?,?)";

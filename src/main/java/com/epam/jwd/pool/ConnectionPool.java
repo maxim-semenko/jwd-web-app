@@ -31,7 +31,7 @@ public final class ConnectionPool {
     /**
      * The instance of DataBaseConfiguration.
      */
-    private static final DataBaseConfiguration dataBaseConfig = DataBaseConfiguration.getInstance();
+    public static DataBaseConfiguration dataBaseConfig = DataBaseConfiguration.getInstance();
 
 
     private ConnectionPool() {

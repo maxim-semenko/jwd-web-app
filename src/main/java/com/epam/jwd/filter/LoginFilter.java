@@ -29,8 +29,6 @@ import java.util.Optional;
 @Log4j2
 public class LoginFilter implements Filter {
 
-    private final int timeSession = 1800;
-
     /**
      * Method that filter {@link User }user signIn.
      *

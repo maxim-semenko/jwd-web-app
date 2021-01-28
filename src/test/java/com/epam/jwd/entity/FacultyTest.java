@@ -2,11 +2,17 @@ package com.epam.jwd.entity;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class FacultyTest {
 
-    Faculty faculty = new Faculty(EnumFaculty.FCAD, 3);
+    Faculty faculty;
+
+    @Before
+    public void setUp() throws Exception {
+        faculty = new Faculty(EnumFaculty.FCAD, 3);
+    }
 
     @Test
     public void testTestToString() {
@@ -24,4 +30,5 @@ public class FacultyTest {
         faculty.setCountPlaces(5);
         Assert.assertEquals(faculty.getCountPlaces(), 5);
     }
+
 }

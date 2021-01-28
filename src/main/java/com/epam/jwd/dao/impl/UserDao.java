@@ -1,5 +1,6 @@
 package com.epam.jwd.dao.impl;
 
+import com.epam.jwd.context.config.DataBaseConfiguration;
 import com.epam.jwd.dao.AbstractDao;
 import com.epam.jwd.entity.User;
 import com.epam.jwd.exception.UnknownMethodException;
@@ -20,7 +21,7 @@ import java.util.concurrent.locks.ReentrantLock;
 @Log4j2
 public class UserDao implements AbstractDao<User> {
 
-    private static final ConnectionPool connectionPool = ConnectionPool.getInstance();
+    public static final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private static final UserResultSet userResultSet = UserResultSet.getInstance();
     private static final ReentrantLock LOCK = new ReentrantLock();
     private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);

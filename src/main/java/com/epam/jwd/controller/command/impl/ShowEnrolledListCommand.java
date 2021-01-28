@@ -6,6 +6,12 @@ import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 import com.epam.jwd.service.UserService;
 
+/**
+ * Class command that show enrolled list.
+ *
+ * @version 0.0.1
+ */
+
 public class ShowEnrolledListCommand implements Command {
 
     private static final ResponseContext SHOW_ENROLLED_LIST_PAGE

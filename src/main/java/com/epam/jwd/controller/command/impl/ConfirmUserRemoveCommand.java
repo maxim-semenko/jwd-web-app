@@ -5,6 +5,14 @@ import com.epam.jwd.controller.command.Command;
 import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 
+/**
+ * Class command that show page, where user
+ * confirm to delete account.
+ *
+ * @version 0.0.1
+ */
+
+
 public class ConfirmUserRemoveCommand implements Command {
 
     private static final ResponseContext CONFIRM_USER_REMOVE_PAGE

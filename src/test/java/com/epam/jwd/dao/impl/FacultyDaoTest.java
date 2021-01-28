@@ -14,6 +14,7 @@ public class FacultyDaoTest {
 
     @Test
     public void testGetInstance() {
+        AppContext.setType(AppContext.Type.TEST);
         AppContext.getInstance().initProperties();
         FacultyDao facultyDao = FacultyDao.getInstance();
         Assert.assertEquals(facultyDao, FacultyDao.getInstance());

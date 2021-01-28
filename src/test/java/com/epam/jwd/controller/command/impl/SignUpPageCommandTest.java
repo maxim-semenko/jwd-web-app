@@ -16,7 +16,7 @@ public class SignUpPageCommandTest {
     @Test
     public void testExecute() {
         HttpServletRequest req = mock( HttpServletRequest.class);
-        final Command command = CommandFactory.getCommand("/signup");
+        final Command command = CommandFactory.getCommand("sign-up");
         final ResponseContext responseContext = command.execute(new CustomRequestContext(req));
         Assert.assertEquals(responseContext.getPage(), PathToPages.SIGNUP_PAGE);
     }

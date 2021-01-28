@@ -16,6 +16,12 @@ public class AppContext {
 
     private static AppContext instance;
     public static boolean isEnrolledList;
+    private static Type type = Type.PRODUCTION;
+
+    public enum Type {
+        PRODUCTION,
+        TEST;
+    }
 
     public static AppContext getInstance() {
         if (instance == null) {
@@ -28,6 +34,7 @@ public class AppContext {
         initProperties();
         AdminConfiguration.getInstance();
         DataBaseConfiguration.getInstance();
+        ConnectionPool.getInstance();
         EmailConfiguration.getInstance();
         User.COUNT_ID = UserService.getInstance().getMaxId();
         isEnrolledList = UserService.getInstance().getCountUserEnrolled() != 0;
@@ -38,8 +45,13 @@ public class AppContext {
         AdminPropertiesReaderUtil.loadProperties();
         DataBasePropertiesReaderUtil.loadProperties();
         EmailPropertiesReaderUtil.loadProperties();
-        ConnectionPool.getInstance();
     }
 
+    public static Type getType() {
+        return type;
+    }
 
+    public static void setType(Type type) {
+        AppContext.type = type;
+    }
 }
