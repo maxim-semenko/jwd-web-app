@@ -10,6 +10,8 @@ import java.util.Optional;
 /**
  * {@link CommandFactory} CommandFactory class,
  * which return needed {@link Command} command.
+ *
+ * @version 0.0.1
  */
 
 @Log4j2
@@ -26,7 +28,7 @@ public class CommandFactory {
                 Arrays.stream(CommandType.values())
                         .filter(enumCommand -> enumCommand.getUrl().equals(url)).findFirst();
         if (optional.isPresent()) {
-            log.info("Get page " + url);
+            log.info("Get " + url);
             return optional.get().getCommand();
         }
         return new ErrorCommand();

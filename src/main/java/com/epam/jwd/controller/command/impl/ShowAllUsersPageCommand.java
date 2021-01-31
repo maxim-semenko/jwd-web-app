@@ -21,6 +21,7 @@ public class ShowAllUsersPageCommand implements Command {
     @Override
     public ResponseContext execute(RequestContext requestContext) {
         requestContext.setAttribute("showAllUsers", UserService.getInstance().selectAll());
+        requestContext.getHttpSession().setAttribute("adminPage", "allUsers");
         return ALL_USERS_PAGE;
     }
 }

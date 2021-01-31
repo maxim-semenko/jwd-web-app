@@ -24,7 +24,7 @@ public class FacultyServiceTest {
     @BeforeClass
     public static void beforeClass() {
         AppContext.setType(AppContext.Type.TEST);
-        AppContext.getInstance().init();
+//        AppContext.getInstance().init();
         facultyService = FacultyService.getInstance();
         connectionPool = ConnectionPool.getInstance();
     }

@@ -11,10 +11,21 @@ import com.epam.jwd.util.DataBasePropertiesReaderUtil;
 import com.epam.jwd.util.EmailPropertiesReaderUtil;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * Class that contains application initialization,
+ * settings, the ability to set the project launch
+ * {@link Type} (production or testing).
+ */
+
 @Log4j2
 public class AppContext {
 
     private static AppContext instance;
+    private static final ReentrantLock LOCK = new ReentrantLock();
+    private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
     public static boolean isEnrolledList;
     private static Type type = Type.PRODUCTION;
 
@@ -24,18 +35,24 @@ public class AppContext {
     }
 
     public static AppContext getInstance() {
-        if (instance == null) {
-            instance = new AppContext();
+        if (!INSTANCE_CREATED.get()) {
+            LOCK.lock();
+            try {
+                if (instance == null) {
+                    instance = new AppContext();
+                    INSTANCE_CREATED.set(true);
+                }
+            } finally {
+                LOCK.unlock();
+            }
         }
         return instance;
     }
 
     public void init() {
         initProperties();
-        AdminConfiguration.getInstance();
-        DataBaseConfiguration.getInstance();
+        initConfigs();
         ConnectionPool.getInstance();
-        EmailConfiguration.getInstance();
         User.COUNT_ID = UserService.getInstance().getMaxId();
         isEnrolledList = UserService.getInstance().getCountUserEnrolled() != 0;
     }
@@ -45,6 +62,13 @@ public class AppContext {
         AdminPropertiesReaderUtil.loadProperties();
         DataBasePropertiesReaderUtil.loadProperties();
         EmailPropertiesReaderUtil.loadProperties();
+    }
+
+    public void initConfigs() {
+        log.info("start init configs");
+        AdminConfiguration.getInstance();
+        DataBaseConfiguration.getInstance();
+        EmailConfiguration.getInstance();
     }
 
     public static Type getType() {

@@ -8,6 +8,7 @@ import com.epam.jwd.controller.command.impl.ChangePasswordCommand;
 import com.epam.jwd.controller.command.impl.ConfirmUserRemoveCommand;
 import com.epam.jwd.controller.command.impl.EditFacultyCommand;
 import com.epam.jwd.controller.command.impl.EditFacultyPageCommand;
+import com.epam.jwd.controller.command.impl.FindUsersByCriteriaCommand;
 import com.epam.jwd.controller.command.impl.ForgotPasswordPageCommand;
 import com.epam.jwd.controller.command.impl.GenerateEnrolledListCommand;
 import com.epam.jwd.controller.command.impl.HomePageCommand;
@@ -19,6 +20,7 @@ import com.epam.jwd.controller.command.impl.RemoveUserByClientCommand;
 import com.epam.jwd.controller.command.impl.SendEmailMessageCommand;
 import com.epam.jwd.controller.command.impl.ShowAllUsersPageCommand;
 import com.epam.jwd.controller.command.impl.ShowEnrolledListCommand;
+import com.epam.jwd.controller.command.impl.ShowUsersByCriteriaPageCommand;
 import com.epam.jwd.controller.command.impl.SignInCommand;
 import com.epam.jwd.controller.command.impl.SignOutCommand;
 import com.epam.jwd.controller.command.impl.SignUpPageCommand;
@@ -41,6 +43,7 @@ public enum CommandType {
     CHANGE_PASSWORD("change-password", new ChangePasswordCommand()),
     EDIT_FACULTY("edit-faculty", new EditFacultyCommand()),
     EDIT_FACULTY_PAGE("cabinet/edit-faculty-page", new EditFacultyPageCommand()),
+    FIND_USERS_BY_CRITERIA("find-users-by-criteria", new FindUsersByCriteriaCommand()),
     FORGOT_PASSWORD_PAGE("forgot-password", new ForgotPasswordPageCommand()),
     GENERATE_ENROLLED_LIST("generate-enrolled-list", new GenerateEnrolledListCommand()),
     HOME_PAGE("home", new HomePageCommand()),
@@ -54,6 +57,7 @@ public enum CommandType {
     SIGN_UP_USER("sign-up-user", new SignUpUserCommand()),
     SHOW_ALL_USERS("admin/all-users", new ShowAllUsersPageCommand()),
     SHOW_ENROLLED_LIST("admin/enrolled-list", new ShowEnrolledListCommand()),
+    SHOW_USERS_BY_CRITERIA_PAGE("admin/search-page", new ShowUsersByCriteriaPageCommand()),
     SIGN_IN("sign-in", new SignInCommand()),
     SIGN_OUT("sign-out", new SignOutCommand()),
     USER_CABINET("cabinet", new UserCabinetCommand()),

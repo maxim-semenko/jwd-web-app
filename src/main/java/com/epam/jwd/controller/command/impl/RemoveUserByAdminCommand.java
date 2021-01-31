@@ -15,13 +15,20 @@ import com.epam.jwd.service.UserService;
 
 public class RemoveUserByAdminCommand implements Command {
 
-    public static final ResponseContext ALL_USERS_PAGE
-            = new ResponseContextImpl(PathToPages.SHOW_ALL_USERS_PAGE, ResponseContext.ResponseType.FORWARD);
+    public static final ResponseContext SHOW_ALL_USERS_PAGE_REDIRECT
+            = new ResponseContextImpl(PathToPages.SHOW_ALL_USERS_PAGE_REDIRECT, ResponseContext.ResponseType.REDIRECT);
+
+    private static final ResponseContext FIND_USERS_BY_CRITERIA_REDIRECT
+            = new ResponseContextImpl(PathToPages.FIND_USERS_BY_CRITERIA_REDIRECT, ResponseContext.ResponseType.REDIRECT);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
         UserService.getInstance().removeById(Integer.parseInt(requestContext.getParamMap().get("id")));
         requestContext.setAttribute("showAllUsers", UserService.getInstance().selectAll());
-        return ALL_USERS_PAGE;
+        if (requestContext.getHttpSession().getAttribute("adminPage") == "allUsers") {
+            return SHOW_ALL_USERS_PAGE_REDIRECT;
+        } else {
+            return FIND_USERS_BY_CRITERIA_REDIRECT;
+        }
     }
 }

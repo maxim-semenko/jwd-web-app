@@ -11,6 +11,7 @@ import com.epam.jwd.exception.ValidatorException;
 import com.epam.jwd.validator.UserValidator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * {@link UserService} UserService, which is intended for business logic
@@ -207,13 +209,7 @@ public class UserService {
                 + user.getPhysicsExamScore();
     }
 
-    /**
-     * Method finds {@link User} user by {@link UserCriteria} criteria.
-     *
-     * @param uc {@link UserCriteria} contain all param of {@link User}
-     * @return {@link Optional<User>} optional of user
-     */
-    public Optional<User> getByCriteria(UserCriteria uc) {
+    private Stream<User> getCriteria(UserCriteria uc) {
         return userDao.selectAll()
                 .stream()
                 .filter(user -> uc.getFirstname() == null || uc.getFirstname().equals(user.getFirstname()))
@@ -221,11 +217,32 @@ public class UserService {
                 .filter(user -> uc.getLogin() == null || uc.getLogin().equals(user.getLogin()))
                 .filter(user -> uc.getPassword() == null || PasswordSecurityService.getInstance().doHashing(uc.getPassword()).equals(user.getPassword()))
                 .filter(user -> uc.getEmail() == null || uc.getEmail().equals(user.getEmail()))
+                .filter(user -> uc.getId() == 0 || uc.getId() == user.getId())
                 .filter(user -> uc.getAverageScore() == 0 || uc.getAverageScore() == user.getAverageScore())
                 .filter(user -> uc.getRussianExamScore() == 0 || uc.getRussianExamScore() == user.getRussianExamScore())
                 .filter(user -> uc.getMathExamScore() == 0 || uc.getMathExamScore() == user.getAverageScore())
                 .filter(user -> uc.getPhysicsExamScore() == 0 || uc.getPhysicsExamScore() == user.getPhysicsExamScore())
-                .findFirst();
+                .filter(user -> uc.getFacultyId() == 0 || uc.getFacultyId() == user.getFacultyId());
+    }
+
+    /**
+     * Method finds {@link User} user by {@link UserCriteria} criteria.
+     *
+     * @param uc {@link UserCriteria} contain all param of {@link User}
+     * @return {@link Optional<User>} optional of user
+     */
+    public Optional<User> getByCriteria(UserCriteria uc) {
+        return getCriteria(uc).findFirst();
+    }
+
+    /**
+     * Method finds {@link User} all user by {@link UserCriteria} criteria.
+     *
+     * @param uc {@link UserCriteria} contain all param of {@link User}
+     * @return {@link List<User>} optional of user
+     */
+    public List<User> getAllByCriteria(UserCriteria uc) {
+        return getCriteria(uc).collect(Collectors.toList());
     }
 
     /**

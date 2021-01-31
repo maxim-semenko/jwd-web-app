@@ -32,6 +32,13 @@
                     </button>
                 </a>
             </div>
+            <div class="col-md-12 text-right mb-3">
+                <a href="home?command=admin/search-page" style="text-decoration: none">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"
+                            id="btn_signup">Поиск
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -42,7 +49,7 @@
             <th><fmt:message key="user.id"/></th>
             <th><fmt:message key="home.login"/></th>
             <th><fmt:message key="signup.firstname"/></th>
-            <th><fmt:message key="home.password"/></th>
+            <th><fmt:message key="signup.lastname"/></th>
             <th><fmt:message key="signup.email"/></th>
             <th><fmt:message key="signup.averageScore"/></th>
             <th><fmt:message key="signup.russianScore"/></th>

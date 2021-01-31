@@ -23,6 +23,7 @@ public class PathToPages {
     public static final String SHOW_ALL_USERS_PAGE = "/WEB-INF/jsp/view/admin/all-users.jsp";
     public static final String SHOW_ENROLLED_LIST_PAGE = "/WEB-INF/jsp/view/admin/show-enrolled-list.jsp";
     public static final String EDIT_FACULTY_PAGE = "/WEB-INF/jsp/view/admin/edit-faculty.jsp";
+    public static final String SHOW_USERS_BY_CRITERIA_PAGE = "/WEB-INF/jsp/view/admin/show-users-by-criteria.jsp";
 
     // Redirect-commands
     public static final String HOME_REDIRECT = "/home?command=home";
@@ -31,6 +32,9 @@ public class PathToPages {
     public static final String AFTER_SIGNUP_REDIRECT = "/home?command=after-sign-up";
     public static final String AFTER_SEND_MESSAGE_PAGE_REDIRECT = "/home?command=new-password";
     public static final String EDIT_FACULTY_REDIRECT = "/home?command=cabinet/edit-faculty-page";
+    public static final String FIND_USERS_BY_CRITERIA_REDIRECT = "/home?command=admin/search-page";
+    public static final String SHOW_ALL_USERS_PAGE_REDIRECT = "/home?command=admin/all-users";
+
 
     // Subsidiary pages
     public static final String ERROR_PAGE = "/WEB-INF/jsp/view/subsidiary/error.jsp";

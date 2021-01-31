@@ -30,8 +30,4 @@ public class InitListenerTest {
         Assert.assertEquals(connectionPool.getAvailableConnections(), 10);
     }
 
-    @After
-    public void tearDown() throws Exception {
-        initListener.contextDestroyed(servletContextEvent);
-    }
 }

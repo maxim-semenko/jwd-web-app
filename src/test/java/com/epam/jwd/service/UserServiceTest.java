@@ -29,7 +29,6 @@ public class UserServiceTest {
     @BeforeClass
     public static void beforeClass() throws Exception {
         AppContext.setType(AppContext.Type.TEST);
-        AppContext.getInstance().init();
         connectionPool = ConnectionPool.getInstance();
         userService = UserService.getInstance();
     }
