@@ -66,6 +66,6 @@
         </tbody>
     </table>
 </div>
-
+<%@include file="../subsidiary/footer.jsp" %>
 </body>
 </html>

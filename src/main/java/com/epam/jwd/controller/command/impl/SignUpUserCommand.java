@@ -40,27 +40,24 @@ public final class SignUpUserCommand implements Command {
         requestContext.setAttribute("checkExistUser", false);
         requestContext.setAttribute("checkError", false);
 
-        final int countParam = 11;
         UserService userService = UserService.getInstance();
+        User user = userService.createByParams(requestContext.getParamMap());
+        Optional<User> optionalUser = userService.getByCriteria(UserCriteria.builder()
+                .login(user.getLogin())
+                .build());
 
-        // Needed params to create user
-        if (requestContext.getParamMap().size() == countParam) {
-            User user = userService.createByParams(requestContext.getParamMap());
-            Optional<User> optionalUser = userService.getByCriteria(UserCriteria.builder()
-                    .login(user.getLogin())
-                    .build());
-            if (optionalUser.isPresent()) {
-                requestContext.setAttribute("checkExistUser", true);
-            } else {
-                try {
-                    userService.insert(user);
-                    return AFTER_SIGNUP_REDIRECT;
-                } catch (ValidatorException e) {
-                    requestContext.setAttribute("checkError", true);
-                    log.error("Can't register user " + e);
-                }
+        if (optionalUser.isPresent()) {
+            requestContext.setAttribute("checkExistUser", true);
+        } else {
+            try {
+                userService.insert(user);
+                return AFTER_SIGNUP_REDIRECT;
+            } catch (ValidatorException e) {
+                requestContext.setAttribute("checkError", true);
+                log.error("Can't register user " + e);
             }
         }
+
         return SIGNUP_PAGE;
     }
 }

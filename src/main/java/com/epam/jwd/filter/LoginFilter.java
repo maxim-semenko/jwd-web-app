@@ -22,6 +22,7 @@ import java.util.Optional;
 /**
  * Login Filter that set {@link User} in {@link HttpSession}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
@@ -30,7 +31,7 @@ import java.util.Optional;
 public class LoginFilter implements Filter {
 
     /**
-     * Method that filter {@link User }user signIn.
+     * Method that filter {@link User } user signIn.
      *
      * @param servletRequest  {@link HttpServletRequest}
      * @param servletResponse {@link HttpServletResponse}

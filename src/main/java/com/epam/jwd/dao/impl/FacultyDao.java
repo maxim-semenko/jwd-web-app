@@ -2,6 +2,7 @@ package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.AbstractDao;
 import com.epam.jwd.entity.Faculty;
+import com.epam.jwd.entity.User;
 import com.epam.jwd.exception.UnknownEnumFacultyException;
 import com.epam.jwd.exception.UnknownMethodException;
 import com.epam.jwd.pool.ConnectionPool;
@@ -16,6 +17,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * {@link FacultyDao} that sends SQL-requests to database
+ * for working with {@link Faculty}.
+ *
+ * @author Maxim Semenko
+ * @version 0.0.1
+ */
 @Log4j2
 public class FacultyDao implements AbstractDao<Faculty> {
 
@@ -31,8 +39,6 @@ public class FacultyDao implements AbstractDao<Faculty> {
     private static final String SQL_SELECT_ALL_FACULTY = "SELECT * FROM faculty_type";
 
     private static final String SQL_SELECT_BY_ID_FACULTY = "SELECT * FROM faculty_type WHERE id = ?";
-
-    private static final String SQL_SELECT_MAX = "SELECT MAX(id) FROM faculty_type";
 
     private static final String SQL_UPDATE_FACULTY = "UPDATE faculty_type SET count_places = ? WHERE id = ?";
 
@@ -54,6 +60,11 @@ public class FacultyDao implements AbstractDao<Faculty> {
         return instance;
     }
 
+    /**
+     * Method that select all {@link Faculty}.
+     *
+     * @return {@link List<Faculty>}
+     */
     @Override
     public List<Faculty> selectAll() {
         List<Faculty> facultyList = new ArrayList<>();
@@ -73,6 +84,12 @@ public class FacultyDao implements AbstractDao<Faculty> {
         return facultyList;
     }
 
+    /**
+     * Method that select {@link Faculty} by id.
+     *
+     * @param id {@link Integer}
+     * @return {@link Faculty}
+     */
     @Override
     public Faculty selectById(Integer id) {
         Faculty faculty = null;
@@ -93,6 +110,12 @@ public class FacultyDao implements AbstractDao<Faculty> {
         return faculty;
     }
 
+    /**
+     * Method that inserts {@link Faculty}
+     *
+     * @param faculty {@link Faculty}
+     * @return {@link Boolean}
+     */
     @Override
     public boolean insert(Faculty faculty) {
         Connection connection = getConnection();
@@ -111,6 +134,11 @@ public class FacultyDao implements AbstractDao<Faculty> {
         return true;
     }
 
+    /**
+     * Method that update {@link Faculty}.
+     *
+     * @param faculty {@link Faculty}
+     */
     @Override
     public void update(Faculty faculty) {
         Connection connection = getConnection();
@@ -128,19 +156,13 @@ public class FacultyDao implements AbstractDao<Faculty> {
     }
 
     @Override
-    public void remove(Faculty faculty) throws UnknownMethodException {
-        throw new UnknownMethodException();
-    }
-
-    @Override
     public boolean removeById(Integer id) throws UnknownMethodException {
         throw new UnknownMethodException();
     }
 
-
     @Override
-    public int getMaxId() {
-        return 0;
+    public int getMaxId() throws UnknownMethodException {
+        throw new UnknownMethodException();
     }
 
 }

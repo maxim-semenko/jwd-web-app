@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 /**
  * Validator class, that checks right of {@link String} user login.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

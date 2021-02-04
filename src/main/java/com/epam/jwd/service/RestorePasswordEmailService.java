@@ -18,6 +18,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * second generate check code for to check if an
  * account belongs to a user.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

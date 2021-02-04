@@ -6,6 +6,14 @@ import com.epam.jwd.pool.ConnectionPool;
 import java.sql.Connection;
 import java.util.List;
 
+/**
+ * {@link AbstractDao} interface that contain basic methods
+ * for working whit database and one default method that
+ * returns {@link Connection} from {@link ConnectionPool}.
+ *
+ * @param <T> any POJO class
+ */
+
 public interface AbstractDao<T> {
 
     List<T> selectAll();
@@ -15,8 +23,6 @@ public interface AbstractDao<T> {
     boolean insert(T t);
 
     void update(T t) throws UnknownMethodException;
-
-    void remove(T t) throws UnknownMethodException;
 
     boolean removeById(Integer id) throws UnknownMethodException;
 

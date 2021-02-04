@@ -14,6 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * ConnectionPool class, which store all connection.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
@@ -69,9 +70,9 @@ public final class ConnectionPool {
     }
 
     /**
-     * Method gets a new connection from DriverManager.
+     * Method that gets a new connection from DriverManager.
      *
-     * @return a new created connection
+     * @return {@link Connection} a new created connection
      */
     private static Connection createConnection() {
         try {
@@ -87,9 +88,9 @@ public final class ConnectionPool {
     }
 
     /**
-     * Method give an available connection.
+     * Method that gives an available connection.
      *
-     * @return available connection
+     * @return {@link Connection} available connection
      * @throws InterruptedException connection interrupted
      */
     public Connection getConnection() throws InterruptedException {
@@ -97,7 +98,7 @@ public final class ConnectionPool {
     }
 
     /**
-     * Method returns taken connection after sql execute.
+     * Method that returns taken connection after sql execute.
      *
      * @param connection connection, which finished sql execute
      */
@@ -106,9 +107,9 @@ public final class ConnectionPool {
     }
 
     /**
-     * Method returns the size of available connection in pool.
+     * Method that returns the size of available connection in pool.
      *
-     * @return size of available connection in pool
+     * @return {@link Integer} size of available connection in pool
      */
     public int getAvailableConnections() {
         return connectionQueue.size();
@@ -116,7 +117,7 @@ public final class ConnectionPool {
 
 
     /**
-     * Method, which register db Driver.
+     * Method that register db Driver.
      */
     private static void registerDriver() {
         try {
@@ -128,7 +129,7 @@ public final class ConnectionPool {
     }
 
     /**
-     * Method, which destroy connection pool.
+     * Method that destroy connection pool.
      */
     public void destroy() {
         if (instanceCreated.get()) {

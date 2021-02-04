@@ -46,19 +46,23 @@
                     <label><input type="number" min="1" class="form-control" name="userId"
                                   placeholder="<fmt:message key="user.id"/>"></label>
                 </th>
-                <th style="max-width:200px">
+                <th style="max-width:180px">
                     <label><input type="text" minlength="2" maxlength="25" class="form-control"
                                   name="userLogin" pattern="^[a-zA-Z0-9]+$"
                                   placeholder="<fmt:message key="home.login"/>"></label>
                 </th>
-                <th><label><input type="text" minlength="2" maxlength="25" class="form-control"
-                                  name="userFirstname" pattern="^([А-Я][а-я]{1,25}|[A-Z][a-z]{1,25})$"
+                <th style="max-width:180px">
+                    <label><input type="text" minlength="2" maxlength="25" class="form-control"
+                                  name="userFirstname"
+                                  pattern="^([А-Я][а-я]{1,25}|[A-Z][a-z]{1,25})$"
                                   placeholder="<fmt:message key="signup.firstname"/>"></label>
                 </th>
-                <th><label><input type="text" minlength="2" maxlength="25" class="form-control"
+                <th style="max-width:180px">
+                    <label><input type="text" minlength="2" maxlength="25" class="form-control"
                                   name="userLastname" pattern="^([А-Я][а-я]{1,25}|[A-Z][a-z]{1,25})$"
                                   placeholder="<fmt:message key="signup.lastname"/>"></label></th>
-                <th><label><input type="email" minlength="4" maxlength="25" class="form-control"
+                <th style="max-width:180px">
+                    <label><input type="email" minlength="4" maxlength="25" class="form-control"
                                   name="userEmail" placeholder="<fmt:message key="signup.email"/>"></label></th>
                 <th><label><input type="number" min="1" max="100" class="form-control" name="userAverageScore"
                                   placeholder="<fmt:message key="signup.averageScore"/>"></label>

@@ -45,6 +45,7 @@ public class AcceptUserEditCommand implements Command {
         User oldUser = (User) session.getAttribute("user");
         User newUser = userService.createByParams(requestContext.getParamMap());
         newUser.setUserStatus(oldUser.getUserStatus());
+        newUser.setUserRole(oldUser.getUserRole());
         newUser.setId(oldUser.getId());
 
         if (checkExistLogin(newUser.getLogin(), oldUser.getLogin()).isPresent()) {

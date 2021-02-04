@@ -31,6 +31,7 @@ import com.epam.jwd.controller.command.impl.UserEditPageCommand;
 /**
  * Class-storage that contain all application command type.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

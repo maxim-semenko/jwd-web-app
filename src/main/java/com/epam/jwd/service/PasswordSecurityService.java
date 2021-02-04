@@ -10,6 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Class that performs the function of hashing passwords.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 @Log4j2

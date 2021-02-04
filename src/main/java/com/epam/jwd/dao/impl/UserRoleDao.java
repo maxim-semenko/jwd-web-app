@@ -5,7 +5,6 @@ import com.epam.jwd.entity.EnumUserRole;
 import com.epam.jwd.exception.UnknownMethodException;
 import com.epam.jwd.pool.ConnectionPool;
 import lombok.extern.log4j.Log4j2;
-import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,11 +45,6 @@ public class UserRoleDao implements AbstractDao<EnumUserRole> {
 
     @Override
     public void update(EnumUserRole enumUserRole) throws UnknownMethodException {
-        throw new UnknownMethodException();
-    }
-
-    @Override
-    public void remove(EnumUserRole enumUserRole) throws UnknownMethodException {
         throw new UnknownMethodException();
     }
 

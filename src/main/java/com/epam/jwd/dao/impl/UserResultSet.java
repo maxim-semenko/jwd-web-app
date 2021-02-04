@@ -33,10 +33,9 @@ public class UserResultSet implements EntityResultSet<User> {
     }
 
     /**
-     *
-     * @param resultSet
-     * @return
-     * @throws SQLException
+     * @param resultSet {@link ResultSet}
+     * @return {@link User}
+     * @throws SQLException exception
      */
     @Override
     public User execute(ResultSet resultSet) throws SQLException {

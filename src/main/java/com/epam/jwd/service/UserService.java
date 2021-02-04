@@ -26,6 +26,7 @@ import java.util.stream.Stream;
  * of working with {@link User} user data.
  * It accesses to {@link UserDao} UserDao.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
@@ -151,7 +152,7 @@ public class UserService {
     }
 
     /**
-     * The method gets {@link User} all users, calculates the sum of points,
+     * The method gets all {@link User} all, calculates the sum of points,
      * sorts by points and then leaves the required amount. If the
      * user is enrolled, his {@link EnumUserStatus } status is update
      * to enrolled, else no enrolled.
@@ -179,7 +180,7 @@ public class UserService {
     }
 
     /**
-     * Method return last id in user table in database.
+     * Method that returns last id in user table in database.
      *
      * @return {@link Integer} id
      */
@@ -209,6 +210,12 @@ public class UserService {
                 + user.getPhysicsExamScore();
     }
 
+    /**
+     * Method that returns {@link Stream<User>}.
+     *
+     * @param uc {@link UserCriteria}
+     * @return {@link Stream<User>}
+     */
     private Stream<User> getCriteria(UserCriteria uc) {
         return userDao.selectAll()
                 .stream()

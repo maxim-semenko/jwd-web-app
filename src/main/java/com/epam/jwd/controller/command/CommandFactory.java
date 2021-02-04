@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.Optional;
 
 /**
- * {@link CommandFactory} CommandFactory class,
- * which return needed {@link Command} command.
+ * {@link CommandFactory} class that returns needed {@link Command}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
@@ -18,17 +18,17 @@ import java.util.Optional;
 public class CommandFactory {
 
     /**
-     * Method return {@link Command} command
+     * Method that returns {@link Command}.
      *
-     * @param url {@link String} const value
+     * @param command {@link String} const value
      * @return {@link Command} command
      */
-    public static Command getCommand(final String url) {
+    public static Command getCommand(final String command) {
         Optional<CommandType> optional =
                 Arrays.stream(CommandType.values())
-                        .filter(enumCommand -> enumCommand.getUrl().equals(url)).findFirst();
+                        .filter(enumCommand -> enumCommand.getUrl().equals(command)).findFirst();
         if (optional.isPresent()) {
-            log.info("Get " + url);
+            log.info("Get command" + command);
             return optional.get().getCommand();
         }
         return new ErrorCommand();

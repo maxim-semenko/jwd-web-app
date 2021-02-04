@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 /**
  * Validator class, that checks valid of {@link Integer} count places.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

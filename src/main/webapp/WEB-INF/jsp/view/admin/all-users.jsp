@@ -14,7 +14,7 @@
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="" class="navbar-brand d-flex align-items-center">
+            <a href="home?command=admin" class="navbar-brand d-flex align-items-center">
                 <img class="mb-4" src="<c:url value="/img/mortarboard.png"/>" width="64" height="64" alt="">
                 <strong><fmt:message key="admin.header"/></strong>
             </a>
@@ -35,7 +35,7 @@
             <div class="col-md-12 text-right mb-3">
                 <a href="home?command=admin/search-page" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
-                            id="btn_signup">Поиск
+                            id="btn_signup"><fmt:message key="admin.searchTitle"/>
                     </button>
                 </a>
             </div>
@@ -88,5 +88,6 @@
         </tbody>
     </table>
 </div>
+<%@include file="../subsidiary/footer.jsp" %>
 </body>
 </html>

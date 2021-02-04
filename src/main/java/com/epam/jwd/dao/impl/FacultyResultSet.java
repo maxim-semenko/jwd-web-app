@@ -14,6 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Class that get {@link ResultSet} from SQL
  * and create {@link Faculty} by params.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

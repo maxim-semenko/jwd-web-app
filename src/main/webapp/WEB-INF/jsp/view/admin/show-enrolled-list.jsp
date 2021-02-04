@@ -17,7 +17,7 @@
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="" class="navbar-brand d-flex align-items-center">
+            <a href="home?command=admin" class="navbar-brand d-flex align-items-center">
                 <img class="mb-4" src="<c:url value="/img/mortarboard.png"/>" width="64" height="64" alt="">
                 <strong><fmt:message key="admin.header"/></strong>
             </a>

@@ -8,6 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Validator class, that checks right of {@link Faculty} faculty.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
