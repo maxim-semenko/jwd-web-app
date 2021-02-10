@@ -34,7 +34,7 @@ public class PathToPages {
     public static final String EDIT_FACULTY_REDIRECT = "/home?command=cabinet/edit-faculty-page";
     public static final String FIND_USERS_BY_CRITERIA_REDIRECT = "/home?command=admin/search-page";
     public static final String SHOW_ALL_USERS_PAGE_REDIRECT = "/home?command=admin/all-users";
-
+    public static final String USER_EDIT_PAGE_REDIRECT = "/home?command=cabinet/edit";
 
     // Subsidiary pages
     public static final String ERROR_PAGE = "/WEB-INF/jsp/view/subsidiary/error.jsp";

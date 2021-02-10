@@ -10,8 +10,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Class DatabaseConfiguration, which
- * stores configuration and allows to take values.
+ * Class DatabaseConfiguration that stores
+ * configuration and allows to take values.
  *
  * @version 0.0.1
  */

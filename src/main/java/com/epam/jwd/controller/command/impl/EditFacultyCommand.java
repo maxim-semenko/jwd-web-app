@@ -9,9 +9,10 @@ import com.epam.jwd.exception.ValidatorException;
 import com.epam.jwd.service.FacultyService;
 
 /**
- * Class, which executes the command to edit {@link Faculty},
+ * Class that executes the command to edit {@link Faculty},
  * namely to change the number of seats on it.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

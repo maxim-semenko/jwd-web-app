@@ -17,6 +17,7 @@ import java.io.IOException;
  * Main controller that execute all {@link HttpServletRequest} request
  * and {@link HttpServletResponse} response between server-client.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

@@ -85,7 +85,7 @@ public class FacultyDao implements AbstractDao<Faculty> {
     }
 
     /**
-     * Method that select {@link Faculty} by id.
+     * Method that selects {@link Faculty} by id.
      *
      * @param id {@link Integer}
      * @return {@link Faculty}
@@ -135,7 +135,7 @@ public class FacultyDao implements AbstractDao<Faculty> {
     }
 
     /**
-     * Method that update {@link Faculty}.
+     * Method that updates {@link Faculty}.
      *
      * @param faculty {@link Faculty}
      */

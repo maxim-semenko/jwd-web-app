@@ -9,6 +9,7 @@ import com.epam.jwd.service.UserService;
 /**
  * Class command that show enrolled list.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

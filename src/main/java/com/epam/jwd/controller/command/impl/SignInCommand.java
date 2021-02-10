@@ -10,7 +10,10 @@ import com.epam.jwd.entity.User;
 import javax.servlet.http.HttpSession;
 
 /**
- * Class command that Sign in {@link User}
+ * Class command that sign in {@link User}.
+ *
+ * @author Maxim Semenko
+ * @version 0.0.1
  */
 
 public class SignInCommand implements Command {

@@ -7,6 +7,9 @@ import com.epam.jwd.controller.command.ResponseContext;
 
 /**
  * Class command that show page after user signup.
+ *
+ * @author Maxim Semenko
+ * @version 0.0.1
  */
 
 public class AfterSignUpPageCommand implements Command {

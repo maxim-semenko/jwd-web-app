@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Class command that generate {@link java.util.List} enrolled list.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

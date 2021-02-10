@@ -6,8 +6,9 @@ import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 
 /**
- * Class command that open signUp page.
+ * Class command that shows signUp page.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

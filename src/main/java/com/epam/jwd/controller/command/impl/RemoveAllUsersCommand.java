@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Class command that remove all users.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

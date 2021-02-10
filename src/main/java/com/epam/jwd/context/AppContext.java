@@ -49,6 +49,9 @@ public class AppContext {
         return instance;
     }
 
+    /**
+     * Method that init app.
+     */
     public void init() {
         initProperties();
         initConfigs();
@@ -57,6 +60,9 @@ public class AppContext {
         isEnrolledList = UserService.getInstance().getCountUserEnrolled() != 0;
     }
 
+    /**
+     * Method that init properties.
+     */
     public void initProperties() {
         log.info("start init properties");
         AdminPropertiesReaderUtil.loadProperties();
@@ -64,6 +70,9 @@ public class AppContext {
         EmailPropertiesReaderUtil.loadProperties();
     }
 
+    /**
+     * Method that init configurations.
+     */
     public void initConfigs() {
         log.info("start init configs");
         AdminConfiguration.getInstance();

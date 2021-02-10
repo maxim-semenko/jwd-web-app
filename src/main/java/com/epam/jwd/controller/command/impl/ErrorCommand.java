@@ -8,6 +8,7 @@ import com.epam.jwd.controller.command.ResponseContext;
 /**
  * Class command that show 404 error page.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

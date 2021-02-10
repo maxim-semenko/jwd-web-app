@@ -7,8 +7,9 @@ import com.epam.jwd.controller.command.ResponseContext;
 import com.epam.jwd.entity.User;
 
 /**
- * Class command that open user edit page for edit {@link User}.
+ * Class command that opens user edit page for edit {@link User}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
  * Class command that signOut {@link User} from cabinet
  * and {@link HttpSession} session.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

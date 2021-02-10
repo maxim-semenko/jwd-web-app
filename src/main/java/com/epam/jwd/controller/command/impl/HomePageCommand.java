@@ -7,6 +7,9 @@ import com.epam.jwd.controller.command.ResponseContext;
 
 /**
  * Class command that show home page.
+ *
+ * @author Maxim Semenko
+ * @version 0.0.1
  */
 
 public final class HomePageCommand implements Command {

@@ -19,6 +19,7 @@ import java.util.Optional;
  * Class command that send email message to {@link User}
  * with check code for restore password.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
@@ -54,6 +55,12 @@ public class SendEmailMessageCommand implements Command {
         return AFTER_SEND_MESSAGE_PAGE_REDIRECT;
     }
 
+    /**
+     * Method that checks {@link User} by login.
+     *
+     * @param map {@link RequestContext}
+     * @return {@link Optional<User>}
+     */
     private Optional<User> getOptionalUser(Map<String, String> map) {
         return UserService
                 .getInstance()

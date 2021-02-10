@@ -15,6 +15,7 @@ import java.util.Optional;
 /**
  * Class command that signUp {@link User}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

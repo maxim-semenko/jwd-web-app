@@ -5,6 +5,7 @@ import com.epam.jwd.controller.command.ResponseContext;
 /**
  * Class that store path for jsp page and responseType.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

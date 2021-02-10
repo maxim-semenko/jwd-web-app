@@ -10,6 +10,7 @@ import com.epam.jwd.service.UserService;
 /**
  * Class command that open page with all users {@link User}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

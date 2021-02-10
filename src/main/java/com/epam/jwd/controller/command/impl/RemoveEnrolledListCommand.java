@@ -11,8 +11,9 @@ import com.epam.jwd.service.UserService;
 import javax.servlet.http.HttpSession;
 
 /**
- * Class command that remove enrolled list.
+ * Class command that removes {@link java.util.List} enrolled list.
  *
+ * @author Maxim semenko
  * @version 0.0.1
  */
 

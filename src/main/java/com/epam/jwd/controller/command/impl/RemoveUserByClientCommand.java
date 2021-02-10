@@ -11,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 /**
  * Class command that remove {@link User} by client.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

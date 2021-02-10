@@ -10,6 +10,7 @@ import com.epam.jwd.service.UserService;
 /**
  * Class command that remove {@link User} by admin.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

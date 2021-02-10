@@ -9,6 +9,7 @@ import com.epam.jwd.controller.command.ResponseContext;
  * Class command that open page, where
  * input new password and check code.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

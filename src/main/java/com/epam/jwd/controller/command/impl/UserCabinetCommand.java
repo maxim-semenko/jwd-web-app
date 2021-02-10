@@ -10,6 +10,7 @@ import com.epam.jwd.entity.User;
 /**
  * Class command that open user cabinet page {@link User}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

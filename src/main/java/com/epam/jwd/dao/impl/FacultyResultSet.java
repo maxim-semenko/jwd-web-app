@@ -40,7 +40,7 @@ public class FacultyResultSet implements EntityResultSet<Faculty> {
     }
 
     /**
-     * Method return {@link Faculty} by params from {@link ResultSet}.
+     * Method that returns {@link Faculty} by params from {@link ResultSet}.
      *
      * @param resultSet {@link ResultSet}
      * @return {@link Faculty}

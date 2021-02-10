@@ -9,6 +9,7 @@ import com.epam.jwd.service.FacultyService;
 /**
  * Class command that show page with edit faculties.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

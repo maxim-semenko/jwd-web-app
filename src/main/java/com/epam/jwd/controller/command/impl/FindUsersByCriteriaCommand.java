@@ -16,12 +16,17 @@ public class FindUsersByCriteriaCommand implements Command {
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
+        requestContext.getHttpSession().setAttribute("usersByCriteria",
+                UserService.getInstance().getAllByCriteria(createCriteria(requestContext)));
+        return FIND_USERS_BY_CRITERIA_REDIRECT;
+    }
+
+    /**
+     * Method that creates {@link UserCriteria} by params from {@link Map}.
+     */
+    private UserCriteria createCriteria(RequestContext requestContext) {
         Map<String, String> paramMap = requestContext.getParamMap();
-
-        System.out.println(requestContext.getParamMap().toString());
-
         UserCriteria userCriteria = UserCriteria.builder().build();
-
 
         if (!paramMap.get("userId").equals("")) {
             userCriteria.setId(Integer.parseInt(paramMap.get("userId")));
@@ -53,10 +58,7 @@ public class FindUsersByCriteriaCommand implements Command {
         if (!paramMap.get("userFacultyId").equals("")) {
             userCriteria.setFacultyId(Integer.parseInt(paramMap.get("userFacultyId")));
         }
-
-        System.out.println("LOGIN " + paramMap.get("userLogin"));
-        System.out.println(UserService.getInstance().getAllByCriteria(userCriteria).toString());
-        requestContext.getHttpSession().setAttribute("usersByCriteria", UserService.getInstance().getAllByCriteria(userCriteria));
-        return FIND_USERS_BY_CRITERIA_REDIRECT;
+        return userCriteria;
     }
+
 }

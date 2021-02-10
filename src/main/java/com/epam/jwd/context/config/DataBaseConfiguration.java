@@ -80,7 +80,6 @@ public final class DataBaseConfiguration {
                 DataBasePropertiesReaderUtil.resourceBundle.getString(NAME) :
                 DataBasePropertiesReaderUtil.resourceBundle.getString(TEST_NAME);
 
-        System.out.println("NAME = " + instance.name);
 
         instance.driver = DataBasePropertiesReaderUtil.resourceBundle.getString(DRIVER);
         instance.jdbc = DataBasePropertiesReaderUtil.resourceBundle.getString(JDBC);

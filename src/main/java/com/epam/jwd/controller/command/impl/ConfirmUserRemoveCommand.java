@@ -9,6 +9,7 @@ import com.epam.jwd.controller.command.ResponseContext;
  * Class command that show page, where user
  * confirm to delete account.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
