@@ -1,6 +1,6 @@
 package com.epam.jwd.pool;
 
-import com.epam.jwd.context.config.DataBaseConfiguration;
+import com.epam.jwd.context.config.DatabaseConfiguration;
 import lombok.extern.log4j.Log4j2;
 
 import java.sql.Connection;
@@ -32,7 +32,7 @@ public final class ConnectionPool {
     /**
      * The instance of DataBaseConfiguration.
      */
-    public static DataBaseConfiguration dataBaseConfig = DataBaseConfiguration.getInstance();
+    public static DatabaseConfiguration dataBaseConfig = DatabaseConfiguration.getInstance();
 
 
     private ConnectionPool() {

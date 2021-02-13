@@ -6,7 +6,6 @@ import com.epam.jwd.entity.User;
 import com.epam.jwd.entity.UserBuilder;
 import com.epam.jwd.exception.ValidatorException;
 import com.epam.jwd.service.UserService;
-import com.epam.jwd.util.DataBasePropertiesReaderUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

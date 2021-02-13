@@ -39,7 +39,7 @@ public class EmailValidator implements Validator<String> {
     /**
      * Method check, if {@link String} input looks like match pattern.
      *
-     * @param input String of user's email
+     * @param input {@link String} user's email
      * @return {@link Boolean} true/false
      */
     @Override

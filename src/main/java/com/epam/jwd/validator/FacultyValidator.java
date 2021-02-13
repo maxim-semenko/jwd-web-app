@@ -35,9 +35,9 @@ public class FacultyValidator implements Validator<Faculty> {
     }
 
     /**
-     * Method check, if {@link Faculty} faculty has valid count of places.
+     * Method check, if {@link Faculty} has valid count of places.
      *
-     * @param faculty faculty object
+     * @param faculty {@link Faculty} faculty object
      * @return {@link Boolean} true/false
      */
     @Override

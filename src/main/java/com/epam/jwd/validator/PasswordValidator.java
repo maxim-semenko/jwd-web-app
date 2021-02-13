@@ -35,7 +35,7 @@ public class PasswordValidator implements Validator<String> {
     /**
      * Method check, if {@link String} password has right length.
      *
-     * @param input user password
+     * @param input {@link String} user's password
      * @return {@link Boolean} true/false
      */
     @Override

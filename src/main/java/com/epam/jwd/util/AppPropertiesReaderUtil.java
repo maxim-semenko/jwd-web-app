@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 /**
  * Class, which contain app properties from file.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 public class AppPropertiesReaderUtil {

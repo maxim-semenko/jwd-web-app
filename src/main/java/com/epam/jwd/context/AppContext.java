@@ -1,13 +1,13 @@
 package com.epam.jwd.context;
 
 import com.epam.jwd.context.config.AdminConfiguration;
-import com.epam.jwd.context.config.DataBaseConfiguration;
+import com.epam.jwd.context.config.DatabaseConfiguration;
 import com.epam.jwd.context.config.EmailConfiguration;
 import com.epam.jwd.entity.User;
 import com.epam.jwd.pool.ConnectionPool;
 import com.epam.jwd.service.UserService;
 import com.epam.jwd.util.AdminPropertiesReaderUtil;
-import com.epam.jwd.util.DataBasePropertiesReaderUtil;
+import com.epam.jwd.util.DatabasePropertiesReaderUtil;
 import com.epam.jwd.util.EmailPropertiesReaderUtil;
 import lombok.extern.log4j.Log4j2;
 
@@ -66,7 +66,7 @@ public class AppContext {
     public void initProperties() {
         log.info("start init properties");
         AdminPropertiesReaderUtil.loadProperties();
-        DataBasePropertiesReaderUtil.loadProperties();
+        DatabasePropertiesReaderUtil.loadProperties();
         EmailPropertiesReaderUtil.loadProperties();
     }
 
@@ -76,7 +76,7 @@ public class AppContext {
     public void initConfigs() {
         log.info("start init configs");
         AdminConfiguration.getInstance();
-        DataBaseConfiguration.getInstance();
+        DatabaseConfiguration.getInstance();
         EmailConfiguration.getInstance();
     }
 

@@ -6,7 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Class that helps to find {@link User} in database by criteria.
+ * Class that helps to find {@link User} in database by {@link UserCriteria}.
+ *
+ * @author Maxim Semenko
+ * @version 0.0.1
  */
 
 @Builder

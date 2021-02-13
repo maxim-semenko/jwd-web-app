@@ -3,6 +3,7 @@ package com.epam.jwd.entity;
 /**
  * Class enum, which assigns the status to the {@link User}.
  *
+ * @author Maksim Semenko
  * @version 0.0.1
  */
 

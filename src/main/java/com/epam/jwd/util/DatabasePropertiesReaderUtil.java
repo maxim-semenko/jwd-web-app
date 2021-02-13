@@ -6,11 +6,12 @@ import java.util.ResourceBundle;
  * Database properties reader, class is responsible
  * for reading database config from properties file.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 
 
-public final class DataBasePropertiesReaderUtil {
+public final class DatabasePropertiesReaderUtil {
 
     /**
      * Class, which contain properties from file.

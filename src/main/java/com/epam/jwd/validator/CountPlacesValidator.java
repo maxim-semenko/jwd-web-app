@@ -34,7 +34,7 @@ public class CountPlacesValidator implements Validator<Integer> {
     }
 
     /**
-     * @param input count of places
+     * @param input {@link Integer} count of places
      * @return {@link Boolean} true/false
      */
     @Override

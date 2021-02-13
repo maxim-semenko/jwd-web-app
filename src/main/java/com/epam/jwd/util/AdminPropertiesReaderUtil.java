@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
  * Admin properties reader, class is responsible
  * for reading admin config from properties file.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

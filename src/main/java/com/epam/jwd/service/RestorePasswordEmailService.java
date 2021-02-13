@@ -50,9 +50,9 @@ public class RestorePasswordEmailService implements EmailService {
     }
 
     /**
-     * The method, which send message to user.
+     * The method that sends message to {@link com.epam.jwd.entity.User}.
      *
-     * @param address email address, who do we want to send a message
+     * @param address {@link String} email address, who do we want to send a message
      * @throws MessagingException exception, if some problems with sending message
      */
     @Override
@@ -76,9 +76,9 @@ public class RestorePasswordEmailService implements EmailService {
     }
 
     /**
-     * Method generate check code for email message.
+     * Method that generates check code for email message.
      *
-     * @return check code
+     * @return {@link Integer} check code
      */
     private int generateCode() {
         return (int) (1000 + Math.random() * 8999);

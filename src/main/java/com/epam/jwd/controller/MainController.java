@@ -40,10 +40,10 @@ public class MainController extends HttpServlet {
      * and receives it from the {@link CommandFactory} commandFactory,
      * then gives the page for output and forward on it.
      *
-     * @param req  request
-     * @param resp response
-     * @throws ServletException {@link RequestDispatcher} exception
-     * @throws IOException      {@link RequestDispatcher} exception
+     * @param req  {@link HttpServletRequest} request
+     * @param resp {@link HttpServletResponse} response
+     * @throws ServletException exception
+     * @throws IOException      exception
      */
     private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final Command command = CommandFactory.getCommand(req.getParameter("command"));

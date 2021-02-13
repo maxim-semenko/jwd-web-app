@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
  * Email properties reader, class is responsible
  * for reading email config from properties file.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

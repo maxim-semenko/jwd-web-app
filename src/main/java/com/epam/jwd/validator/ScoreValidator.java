@@ -40,7 +40,7 @@ public class ScoreValidator implements Validator<Integer> {
     /**
      * Method check if {@link Integer} input has a range from 0 to 100.
      *
-     * @param input user score
+     * @param input {@link Integer} user's score
      * @return {@link Boolean} true/false
      */
     @Override

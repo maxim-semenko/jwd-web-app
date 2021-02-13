@@ -7,6 +7,7 @@ import lombok.ToString;
 /**
  * POJO class - user.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

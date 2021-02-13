@@ -38,7 +38,7 @@ public class LoginValidator implements Validator<String> {
     /**
      * Method check, if {@link String} input looks like match pattern.
      *
-     * @param input String of user's login
+     * @param input {@link String} user's login
      * @return {@link Boolean} true/false
      */
     @Override

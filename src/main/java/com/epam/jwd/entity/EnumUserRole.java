@@ -3,6 +3,7 @@ package com.epam.jwd.entity;
 /**
  * Class enum, which assigns the role to the {@link User}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

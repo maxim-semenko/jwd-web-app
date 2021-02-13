@@ -59,7 +59,7 @@ public class FacultyService {
     }
 
     /**
-     * Method insert {@link Faculty} faculty.
+     * Method that inserts {@link Faculty}.
      *
      * @param faculty need to insert
      * @throws ValidatorException if data is not valid
@@ -73,9 +73,9 @@ public class FacultyService {
     }
 
     /**
-     * Method update {@link Faculty} faculty.
+     * Method that updates {@link Faculty}.
      *
-     * @param faculty need to update
+     * @param faculty {@link Faculty} need to update
      * @throws ValidatorException if data is not valid
      */
     public void update(Faculty faculty) throws ValidatorException {

@@ -75,9 +75,9 @@ public class UserService {
     }
 
     /**
-     * Method, which insert {@link User} to table app_user.
+     * Method that inserts {@link User} to table app_user.
      *
-     * @param user insert object
+     * @param user {@link User} insert object
      * @throws ValidatorException if not valid date
      */
     public void insert(User user) throws ValidatorException {
@@ -90,9 +90,9 @@ public class UserService {
     }
 
     /**
-     * Method, which update {@link User} in table app_user.
+     * Method that updates {@link User} in table app_user.
      *
-     * @param user insert object
+     * @param user {@link User} insert object
      * @throws ValidatorException if not valid date
      */
     public void update(User user) throws ValidatorException {
@@ -104,9 +104,9 @@ public class UserService {
     }
 
     /**
-     * Method, which select {@link User} by id in table app_user.
+     * Method that selects {@link User} by id in table app_user.
      *
-     * @param id the value for search in table
+     * @param id {@link Integer} the value for search in table
      * @return {@link User} object, which we want to get by id
      */
     public User selectById(int id) {
@@ -123,21 +123,21 @@ public class UserService {
     }
 
     /**
-     * Method delete {@link User} user by id from table.
+     * Method that deletes {@link User} by id from table.
      */
     public void removeById(Integer id) {
         userDao.removeById(id);
     }
 
     /**
-     * Method delete {@link User} all users from table.
+     * Method that deletes {@link User} all users from table.
      */
     public void removeAllUsers() {
         userDao.removeAllUsers();
     }
 
     /**
-     * Method delete all users from enrolled list and
+     * Method that deletes all {@link User} from enrolled list and
      * update to {@link EnumUserStatus} unknown status.
      *
      * @throws ValidatorException if update has problems
@@ -157,7 +157,7 @@ public class UserService {
      * user is enrolled, his {@link EnumUserStatus } status is update
      * to enrolled, else no enrolled.
      *
-     * @param userList all users
+     * @param userList {@link List<User>} all users
      * @throws ValidatorException if update has problems
      */
     public void insertToEnrolledList(List<User> userList) throws ValidatorException {
@@ -273,7 +273,7 @@ public class UserService {
      * change {@link EnumUserStatus} user status
      * and update in database.
      *
-     * @param userList all Users
+     * @param userList {@link List<User>} all Users
      * @throws ValidatorException if user data not valid
      */
     private void prepareUsersForEntrant(List<User> userList) throws ValidatorException {
@@ -287,7 +287,7 @@ public class UserService {
     /**
      * Method sort {@link List<User>}
      *
-     * @param userList list
+     * @param userList {@link List<User>} list
      * @return sorted {@link List<User>}
      */
     private List<User> sort(List<User> userList) {

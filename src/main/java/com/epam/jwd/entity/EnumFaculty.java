@@ -5,6 +5,7 @@ import com.epam.jwd.exception.UnknownEnumFacultyException;
 /**
  * Class enum - type of {@link Faculty}.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

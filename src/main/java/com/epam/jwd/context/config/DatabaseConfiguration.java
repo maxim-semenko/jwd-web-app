@@ -1,11 +1,10 @@
 package com.epam.jwd.context.config;
 
 import com.epam.jwd.context.AppContext;
-import com.epam.jwd.util.DataBasePropertiesReaderUtil;
+import com.epam.jwd.util.DatabasePropertiesReaderUtil;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.apache.log4j.Logger;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
@@ -20,9 +19,9 @@ import java.util.concurrent.locks.ReentrantLock;
 @Getter
 @ToString
 @Log4j2
-public final class DataBaseConfiguration {
+public final class DatabaseConfiguration {
 
-    private static DataBaseConfiguration instance;
+    private static DatabaseConfiguration instance;
     private static final ReentrantLock LOCK = new ReentrantLock();
     private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
 
@@ -46,7 +45,7 @@ public final class DataBaseConfiguration {
     private int poolSize;
 
 
-    public static DataBaseConfiguration getInstance() {
+    public static DatabaseConfiguration getInstance() {
         if (!INSTANCE_CREATED.get()) {
             LOCK.lock();
             try {
@@ -64,26 +63,26 @@ public final class DataBaseConfiguration {
     /**
      * Method performs initialization configurations of data base.
      *
-     * @return {@link DataBaseConfiguration} singleton class object
+     * @return {@link DatabaseConfiguration} singleton class object
      */
-    private static DataBaseConfiguration init() {
-        instance = new DataBaseConfiguration();
+    private static DatabaseConfiguration init() {
+        instance = new DatabaseConfiguration();
 
         log.info("Start database configuration");
-        instance.login = DataBasePropertiesReaderUtil.resourceBundle.getString(LOGIN);
-        instance.password = DataBasePropertiesReaderUtil.resourceBundle.getString(PASSWORD);
-        instance.host = DataBasePropertiesReaderUtil.resourceBundle.getString(HOST);
-        instance.port = DataBasePropertiesReaderUtil.resourceBundle.getString(PORT);
+        instance.login = DatabasePropertiesReaderUtil.resourceBundle.getString(LOGIN);
+        instance.password = DatabasePropertiesReaderUtil.resourceBundle.getString(PASSWORD);
+        instance.host = DatabasePropertiesReaderUtil.resourceBundle.getString(HOST);
+        instance.port = DatabasePropertiesReaderUtil.resourceBundle.getString(PORT);
 
         instance.name = AppContext.getType() ==
                 AppContext.Type.PRODUCTION ?
-                DataBasePropertiesReaderUtil.resourceBundle.getString(NAME) :
-                DataBasePropertiesReaderUtil.resourceBundle.getString(TEST_NAME);
+                DatabasePropertiesReaderUtil.resourceBundle.getString(NAME) :
+                DatabasePropertiesReaderUtil.resourceBundle.getString(TEST_NAME);
 
 
-        instance.driver = DataBasePropertiesReaderUtil.resourceBundle.getString(DRIVER);
-        instance.jdbc = DataBasePropertiesReaderUtil.resourceBundle.getString(JDBC);
-        instance.poolSize = Integer.parseInt(DataBasePropertiesReaderUtil.resourceBundle.getString(POOL_SIZE));
+        instance.driver = DatabasePropertiesReaderUtil.resourceBundle.getString(DRIVER);
+        instance.jdbc = DatabasePropertiesReaderUtil.resourceBundle.getString(JDBC);
+        instance.poolSize = Integer.parseInt(DatabasePropertiesReaderUtil.resourceBundle.getString(POOL_SIZE));
 
         return instance;
     }

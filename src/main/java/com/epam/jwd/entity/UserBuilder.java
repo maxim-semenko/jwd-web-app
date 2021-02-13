@@ -6,6 +6,7 @@ import lombok.Getter;
  * User-builder to create {@link User}.
  * Pattern builder
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 @Getter

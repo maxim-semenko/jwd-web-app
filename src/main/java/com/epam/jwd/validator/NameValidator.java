@@ -36,7 +36,7 @@ public class NameValidator implements Validator<String> {
     /**
      * Method check, if {@link String} name not empty and looks like match pattern.
      *
-     * @param input user password
+     * @param input {@link String} user's password
      * @return {@link Boolean} true/false
      */
     @Override
