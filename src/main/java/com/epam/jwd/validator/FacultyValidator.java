@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Validator class, that checks right of {@link Faculty} faculty.
+ * Validator class that checks right of {@link Faculty} faculty.
  *
  * @author Maxim Semenko
  * @version 0.0.1
@@ -35,13 +35,13 @@ public class FacultyValidator implements Validator<Faculty> {
     }
 
     /**
-     * Method check, if {@link Faculty} has valid count of places.
+     * Method checks, if {@link Faculty} has valid count of places.
      *
      * @param faculty {@link Faculty} faculty object
      * @return {@link Boolean} true/false
      */
     @Override
-    public Boolean validate(Faculty faculty) {
+    public Boolean validate(final Faculty faculty) {
         return CountPlacesValidator.getInstance().validate(faculty.getCountPlaces());
     }
 }

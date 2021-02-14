@@ -3,13 +3,18 @@ package com.epam.jwd.util;
 import java.util.ResourceBundle;
 
 /**
- * Class, which contain app properties from file.
+ * Class that contains app properties from file.
  *
  * @author Maxim Semenko
  * @version 0.0.1
  */
-public class AppPropertiesReaderUtil {
+public final class AppPropertiesReaderUtil {
 
-    public final static ResourceBundle resourceBundle = ResourceBundle.getBundle("app");
+    private AppPropertiesReaderUtil() {
+    }
+    /**
+     * {@link ResourceBundle} that get properties from app.properties.
+     */
+    public final static ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle("app");
 
 }

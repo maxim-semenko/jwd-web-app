@@ -18,6 +18,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * Class that contains application initialization,
  * settings. The ability to set the project launch
  * {@link Type} (production or testing).
+ *
+ * @author Maxim Semenko
+ * @version 0.0.1
  */
 
 @Log4j2

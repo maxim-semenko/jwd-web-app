@@ -10,20 +10,23 @@ import java.util.ResourceBundle;
  * @version 0.0.1
  */
 
-
 public final class DatabasePropertiesReaderUtil {
-
     /**
-     * Class, which contain properties from file.
+     * {@link ResourceBundle} contain properties.
      */
     public static ResourceBundle resourceBundle;
-    private static final String PATH_PROPERTIES = "dataBaseProperties";
-
     /**
-     * Method, which read from file to properties value.
+     * {@link String} needed name property from app.properties.
+     */
+    private static final String PATH_PROPERTIES = "databasePropertiesFile";
+
+    private DatabasePropertiesReaderUtil() {
+    }
+    /**
+     * Method that reads from file to properties value.
      */
     public static void loadProperties() {
-        final String propertiesFileName = AppPropertiesReaderUtil.resourceBundle.getString(PATH_PROPERTIES);
+        final String propertiesFileName = AppPropertiesReaderUtil.RESOURCE_BUNDLE.getString(PATH_PROPERTIES);
         resourceBundle = ResourceBundle.getBundle(propertiesFileName);
     }
 

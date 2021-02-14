@@ -3,6 +3,7 @@ package com.epam.jwd.context;
 /**
  * Class-storage that contain all path to jsp.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

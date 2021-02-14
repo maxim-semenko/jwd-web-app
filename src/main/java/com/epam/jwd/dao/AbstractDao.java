@@ -12,6 +12,8 @@ import java.util.List;
  * returns {@link Connection} from {@link ConnectionPool}.
  *
  * @param <T> any POJO class
+ * @author Maxim Semenko
+ * @version 0.0.1
  */
 
 public interface AbstractDao<T> {

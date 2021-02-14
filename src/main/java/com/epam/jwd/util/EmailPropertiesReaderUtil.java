@@ -10,16 +10,24 @@ import java.util.ResourceBundle;
  * @version 0.0.1
  */
 
-public class EmailPropertiesReaderUtil {
-
-    public static ResourceBundle resourceBundle;
-    private static final String PATH_PROPERTIES = "emailProperties";
+public final class EmailPropertiesReaderUtil {
 
     /**
-     * Method, which read from file to properties value.
+     * {@link ResourceBundle} contain properties.
+     */
+    public static ResourceBundle resourceBundle;
+    /**
+     * {@link String} needed name property from app.properties.
+     */
+    private static final String PATH_PROPERTIES = "emailPropertiesFile";
+
+    private EmailPropertiesReaderUtil() {
+    }
+    /**
+     * Method that reads from file to properties value.
      */
     public static void loadProperties() {
-        final String propertiesFileName = AppPropertiesReaderUtil.resourceBundle.getString(PATH_PROPERTIES);
+        final String propertiesFileName = AppPropertiesReaderUtil.RESOURCE_BUNDLE.getString(PATH_PROPERTIES);
         resourceBundle = ResourceBundle.getBundle(propertiesFileName);
     }
 }

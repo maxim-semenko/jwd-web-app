@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Predicate;
 
 /**
- * Validator class, that checks right of {@link String} name.
+ * Validator class that checks right of {@link String} name.
  *
  * @author Maxim Semenko
  * @version 0.0.1
@@ -34,13 +34,13 @@ public class NameValidator implements Validator<String> {
     }
 
     /**
-     * Method check, if {@link String} name not empty and looks like match pattern.
+     * Method checks, if {@link String} name not empty and looks like match pattern.
      *
      * @param input {@link String} user's password
      * @return {@link Boolean} true/false
      */
     @Override
-    public Boolean validate(String input) {
+    public Boolean validate(final String input) {
         Predicate<String> stringPredicate = str -> (
                 StringValidator.getInstance().validate(str) & str.matches(name_regex_pattern)
         );

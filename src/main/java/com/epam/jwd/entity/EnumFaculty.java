@@ -10,17 +10,34 @@ import com.epam.jwd.exception.UnknownEnumFacultyException;
  */
 
 public enum EnumFaculty {
-    FCSN(1), // Faculty of Computer Systems and Networks.
-    FITC(2), // Faculty of Information Technologies and Controls.
-    FCAD(3), // Faculty of Computer-Aided Design.
-    FRE(4);   // Faculty of RadioEngineering and Electronics.
+    /**
+     * Faculty of Computer Systems and Networks.
+     */
+    FCSN(1),
+    /**
+     * Faculty of Information Technologies and Controls
+     */
+    FITC(2),
+    /**
+     * Faculty of Computer-Aided Design.
+     */
+    FCAD(3),
+    /**
+     * Faculty of RadioEngineering and Electronics.
+     */
+    FRE(4);
 
     private final int id;
 
-    EnumFaculty(int id) {
+    EnumFaculty(final int id) {
         this.id = id;
     }
 
+    /**
+     * Method that gets {@link Integer} id.
+     *
+     * @return {@link Integer} id
+     */
     public int getId() {
         return id;
     }

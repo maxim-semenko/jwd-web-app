@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Predicate;
 
 /**
- * Validator class, that checks right of {@link String} data.
+ * Validator class that checks right of {@link String} data.
  *
  * @author Maxim Semenko
  * @version 0.0.1
@@ -36,9 +36,9 @@ public class StringValidator implements Validator<String> {
     }
 
     /**
-     * Method check if {@link String} input not empty and have right length.
+     * Method checks, if {@link String} input not empty and have right length.
      *
-     * @param input user data
+     * @param input {@link String} user data
      * @return {@link Boolean} true/false
      */
     @Override

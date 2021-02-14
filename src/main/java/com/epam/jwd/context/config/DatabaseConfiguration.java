@@ -13,6 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Class DatabaseConfiguration, which
  * stores configuration and allows to take values.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

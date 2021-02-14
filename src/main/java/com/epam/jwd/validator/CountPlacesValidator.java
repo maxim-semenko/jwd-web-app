@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Predicate;
 
 /**
- * Validator class, that checks valid of {@link Integer} count places.
+ * Validator class that checks valid of {@link Integer} count places.
  *
  * @author Maxim Semenko
  * @version 0.0.1
@@ -34,11 +34,13 @@ public class CountPlacesValidator implements Validator<Integer> {
     }
 
     /**
+     * Method checks, if count of places has right data.
+     *
      * @param input {@link Integer} count of places
      * @return {@link Boolean} true/false
      */
     @Override
-    public Boolean validate(Integer input) {
+    public Boolean validate(final Integer input) {
         Predicate<Integer> integerPredicate = integer -> integer > 0;
         return integerPredicate.test(input);
     }

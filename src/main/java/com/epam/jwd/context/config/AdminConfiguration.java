@@ -14,6 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Class Admin, which has admin opportunity to control web app.
  *
+ * @author Maxim Semenko
  * @version 0.0.1
  */
 

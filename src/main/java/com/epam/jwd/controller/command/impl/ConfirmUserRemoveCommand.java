@@ -6,7 +6,7 @@ import com.epam.jwd.controller.command.RequestContext;
 import com.epam.jwd.controller.command.ResponseContext;
 
 /**
- * Class command that show page, where user
+ * Class command that shows page, where user
  * confirm to delete account.
  *
  * @author Maxim Semenko
