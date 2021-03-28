@@ -11,14 +11,16 @@ import java.util.Map;
 
 public class FindUsersByCriteriaCommand implements Command {
 
-    private static final ResponseContext FIND_USERS_BY_CRITERIA_REDIRECT
-            = new ResponseContextImpl(PathToPages.FIND_USERS_BY_CRITERIA_REDIRECT, ResponseContext.ResponseType.REDIRECT);
+    private static final ResponseContext FIND_USERS_BY_CRITERIA
+            = new ResponseContextImpl(PathToPages.FIND_USERS_BY_CRITERIA, ResponseContext.ResponseType.FORWARD);
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
-        requestContext.getHttpSession().setAttribute("usersByCriteria",
+        requestContext.setAttribute("usersByCriteria",
                 UserService.getInstance().getAllByCriteria(createCriteria(requestContext)));
-        return FIND_USERS_BY_CRITERIA_REDIRECT;
+
+        System.out.println(UserService.getInstance().getAllByCriteria(createCriteria(requestContext)));
+        return FIND_USERS_BY_CRITERIA;
     }
 
     /**
@@ -26,6 +28,7 @@ public class FindUsersByCriteriaCommand implements Command {
      */
     private UserCriteria createCriteria(RequestContext requestContext) {
         Map<String, String> paramMap = requestContext.getParamMap();
+        System.out.println(paramMap);
         UserCriteria userCriteria = UserCriteria.builder().build();
 
         if (!paramMap.get("userId").equals("")) {

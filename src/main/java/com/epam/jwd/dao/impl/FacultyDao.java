@@ -28,8 +28,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class FacultyDao implements AbstractDao<Faculty> {
 
     private static final ConnectionPool connectionPool = ConnectionPool.getInstance();
-    private static final ReentrantLock lock = new ReentrantLock();
-    private static final AtomicBoolean instanceCreated = new AtomicBoolean(false);
     private static final FacultyResultSet facultyResultSet = FacultyResultSet.getInstance();
 
     private static FacultyDao instance;
@@ -46,16 +44,8 @@ public class FacultyDao implements AbstractDao<Faculty> {
     }
 
     public static FacultyDao getInstance() {
-        if (!instanceCreated.get()) {
-            lock.lock();
-            try {
-                if (instance == null) {
-                    instance = new FacultyDao();
-                    instanceCreated.set(true);
-                }
-            } finally {
-                lock.unlock();
-            }
+        if (instance == null) {
+            instance = new FacultyDao();
         }
         return instance;
     }

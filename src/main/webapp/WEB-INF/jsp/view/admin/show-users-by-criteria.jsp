@@ -9,13 +9,13 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=home"/>
+    <c:redirect url="controller?command=home"/>
 </c:if>
 
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="home?command=admin" class="navbar-brand d-flex align-items-center">
+            <a href="controller?command=admin" class="navbar-brand d-flex align-items-center">
                 <img class="mb-4" src="<c:url value="/img/mortarboard.png"/>" width="64" height="64" alt="">
                 <strong><fmt:message key="admin.header"/></strong>
             </a>
@@ -27,11 +27,15 @@
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <a href="home?command=admin/all-users" style="text-decoration: none">
+                <a href="controller?command=admin/all-users" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
                         <fmt:message key="admin.back"/>
                     </button>
                 </a>
+<%--                <form action="<c:url value="/controller"/>" method="get">--%>
+<%--                 --%>
+<%--                </form>--%>
+
             </div>
         </div>
     </div>
@@ -39,7 +43,11 @@
 
 <div class="container-fluid">
     <table class="table table-striped table-bordered">
-        <form class="needs-validation" action="home?command=find-users-by-criteria" method="post">
+        <form class="needs-validation" action="/controller" method="get">
+            <label><input hidden name="command" value="find-users-by-criteria"></label>
+            <button class="btn btn-success btn-block" type="submit">
+                Найти
+            </button>
             <thead>
             <tr>
                 <th style="max-width:100px">
@@ -78,11 +86,6 @@
                 </th>
                 <th><label><input type="number" min="1" max="4" class="form-control" name="userFacultyId"
                                   placeholder="<fmt:message key="signup.faculty"/>"></label></th>
-                <th><label>
-                    <button class="btn btn-success btn-block" type="submit">
-                        <fmt:message key="admin.search"/>
-                    </button>
-                </label></th>
             </tr>
             </thead>
         </form>
@@ -100,7 +103,7 @@
                 <td><c:out value="${user.physicsExamScore}"/></td>
                 <td><c:out value="${user.facultyId}"/></td>
                 <td>
-                    <form action="home?command=remove-user-by-admin" method="post">
+                    <form action="controller?command=remove-user-by-admin" method="post">
                         <label><input type="number" hidden name="id" value="${user.id}"></label>
                         <button class="btn btn-success btn-block" type="submit">
                             <fmt:message key="admin.allUsers.delete"/>

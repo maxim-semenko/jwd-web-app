@@ -18,12 +18,12 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=home"/>
+    <c:redirect url="controller?command=home"/>
 </c:if>
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="home?command=cabinet" class="navbar-brand d-flex align-items-center">
+            <a href="controller?command=cabinet" class="navbar-brand d-flex align-items-center">
                 <img class="mb-4" src="<c:url value="/img/mortarboard.png"/>" width="64" height="64">
                 <strong><fmt:message key="user.name"/></strong>
             </a>

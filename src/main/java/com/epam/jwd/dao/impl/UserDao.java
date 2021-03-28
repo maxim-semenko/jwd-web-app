@@ -84,7 +84,6 @@ public class UserDao implements AbstractDao<User> {
             "    firstname = ?,\n" +
             "    lastname  = ?,\n" +
             "    email     = ?,\n" +
-            "    role_id   = ?,\n" +
             "    status_id = ?\n" +
             "WHERE id = ?";
 
@@ -224,7 +223,7 @@ public class UserDao implements AbstractDao<User> {
              PreparedStatement preparedStatement3 = connection.prepareStatement(SQL_UPDATE_USER_FACULTY);
         ) {
             connection.setAutoCommit(false);
-            initPreparedStatement1(preparedStatement1, user);
+            initUpdatePreparedStatement(preparedStatement1, user);
             preparedStatement1.executeUpdate();
             initPreparedStatement2(preparedStatement2, user);
             preparedStatement2.executeUpdate();
@@ -476,6 +475,16 @@ public class UserDao implements AbstractDao<User> {
     private void initPreparedStatement3(PreparedStatement preparedStatement3, User user) throws SQLException {
         preparedStatement3.setInt(1, user.getId());
         preparedStatement3.setInt(2, user.getFacultyId());
+    }
+
+    private void initUpdatePreparedStatement(PreparedStatement preparedStatement1, User user) throws SQLException {
+        preparedStatement1.setString(1, user.getLogin());
+        preparedStatement1.setString(2, user.getPassword());
+        preparedStatement1.setString(3, user.getFirstname());
+        preparedStatement1.setString(4, user.getLastname());
+        preparedStatement1.setString(5, user.getEmail());
+        preparedStatement1.setInt(6, user.getUserStatus().getId());
+        preparedStatement1.setInt(7, user.getId());
     }
 
 }

@@ -24,7 +24,7 @@
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <a href="home?command=admin" style="text-decoration: none">
+                <a href="controller?command=admin" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
                         <fmt:message key="admin.back"/>
                     </button>
@@ -44,7 +44,7 @@
         </tr>
         </thead>
         <tbody>
-        <form action="home?command=edit-faculty" method="post">
+        <form action="controller?command=edit-faculty" method="post">
             <c:forEach var="faculty" items="${requestScope.allFaculties}">
             <tr>
                 <td><c:out value="${faculty.type}"/></td>

@@ -11,12 +11,12 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=home" />
+    <c:redirect url="controller?command=home" />
 </c:if>
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="home?command=cabinet" class="navbar-brand d-flex align-items-center">
+            <a href="controller?command=cabinet" class="navbar-brand d-flex align-items-center">
                 <img class="mb-4" src="<c:url value="/img/mortarboard.png"/>" width="64" height="64">
                 <strong><fmt:message key="user.name"/></strong>
             </a>
@@ -29,12 +29,12 @@
         <p class="lead text-muted"><fmt:message key="user.confirmDelete.description"/></p>
         <p>
         <div class="form-signin">
-            <form action="home?command=remove-user-by-client" method="post">
+            <form action="controller?command=remove-user-by-client" method="post">
                 <label><input type="number" hidden name="id" value="${sessionScope.user.id}"></label>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_signin">
                     <fmt:message key="user.confirmDelete.yes"/></button>
             </form>
-            <a href="home?command=cabinet" style="text-decoration: none">
+            <a href="controller?command=cabinet" style="text-decoration: none">
                 <button class="btn btn-lg btn-primary btn-block" type="submit"
                         id="btn_signup"><fmt:message key="user.confirmDelete.no"/>
                 </button>

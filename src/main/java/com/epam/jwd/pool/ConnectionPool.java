@@ -22,8 +22,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class ConnectionPool {
 
     private static ConnectionPool instance;
-    private static final ReentrantLock lock = new ReentrantLock();
-    private static final AtomicBoolean instanceCreated = new AtomicBoolean(false);
 
     /**
      * The queue of connections.
@@ -39,16 +37,8 @@ public final class ConnectionPool {
     }
 
     public static ConnectionPool getInstance() {
-        if (!instanceCreated.get()) {
-            lock.lock();
-            try {
-                if (instance == null) {
-                    instance = init();
-                    instanceCreated.set(true);
-                }
-            } finally {
-                lock.unlock();
-            }
+        if (instance == null) {
+            instance = init();
         }
         return instance;
     }
@@ -132,18 +122,14 @@ public final class ConnectionPool {
      * Method that destroy connection pool.
      */
     public void destroy() {
-        if (instanceCreated.get()) {
-            lock.lock();
+        if (instance != null) {
             try {
                 for (Connection connection : connectionQueue) {
                     connection.close();
                 }
                 instance = null;
-                instanceCreated.set(false);
             } catch (SQLException e) {
                 log.error("Can't destroy connection pool ", e);
-            } finally {
-                lock.unlock();
             }
         }
         log.info("Connection pool are destroyed");

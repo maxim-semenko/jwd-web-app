@@ -13,7 +13,7 @@
     <div class="container">
         <h1><fmt:message key="signup.success"/></h1>
         <div class="container">
-            <a href="home?command=home" style="text-decoration: none">
+            <a href="controller?command=home" style="text-decoration: none">
                 <button class="btn btn-lg btn-primary btn-block" type="submit"
                         id="btn_signup"><fmt:message key="signup.back"/></button>
             </a>

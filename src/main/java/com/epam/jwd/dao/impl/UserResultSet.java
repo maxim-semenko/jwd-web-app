@@ -13,21 +13,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class UserResultSet implements EntityResultSet<User> {
 
-    private static final ReentrantLock LOCK = new ReentrantLock();
-    private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
     private static UserResultSet instance;
 
     public static UserResultSet getInstance() {
-        if (!INSTANCE_CREATED.get()) {
-            LOCK.lock();
-            try {
-                if (instance == null) {
-                    instance = new UserResultSet();
-                    INSTANCE_CREATED.set(true);
-                }
-            } finally {
-                LOCK.unlock();
-            }
+        if (instance == null) {
+            instance = new UserResultSet();
         }
         return instance;
     }

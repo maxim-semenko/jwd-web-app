@@ -29,7 +29,7 @@
                     <fmt:message key="signup.error"/>
                 </div>
             </c:if>
-            <form class="needs-validation" action="home?command=sign-up-user" method="post">
+            <form class="needs-validation" action="controller?command=sign-up-user" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName"><fmt:message key="signup.firstname"/></label>

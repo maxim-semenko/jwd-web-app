@@ -26,8 +26,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class RestorePasswordEmailService implements EmailService {
 
     private static RestorePasswordEmailService instance;
-    private static final ReentrantLock LOCK = new ReentrantLock();
-    private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
     private final EmailConfiguration emailConfiguration = EmailConfiguration.getInstance();
 
     private int code;
@@ -35,16 +33,8 @@ public class RestorePasswordEmailService implements EmailService {
             "To continue, enter the verification code on the site: ";
 
     public static RestorePasswordEmailService getInstance() {
-        if (!INSTANCE_CREATED.get()) {
-            LOCK.lock();
-            try {
-                if (instance == null) {
-                    instance = new RestorePasswordEmailService();
-                    INSTANCE_CREATED.set(true);
-                }
-            } finally {
-                LOCK.unlock();
-            }
+        if (instance == null) {
+            instance = new RestorePasswordEmailService();
         }
         return instance;
     }

@@ -28,7 +28,7 @@ public class CommandFactory {
                 Arrays.stream(CommandType.values())
                         .filter(enumCommand -> enumCommand.getUrl().equals(command)).findFirst();
         if (optional.isPresent()) {
-            log.info("Get command" + command);
+            log.info("Get command " + command);
             return optional.get().getCommand();
         }
         return new ErrorCommand();

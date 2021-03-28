@@ -23,8 +23,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class DatabaseConfiguration {
 
     private static DatabaseConfiguration instance;
-    private static final ReentrantLock LOCK = new ReentrantLock();
-    private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
 
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
@@ -47,16 +45,8 @@ public final class DatabaseConfiguration {
 
 
     public static DatabaseConfiguration getInstance() {
-        if (!INSTANCE_CREATED.get()) {
-            LOCK.lock();
-            try {
-                if (instance == null) {
-                    instance = init();
-                    INSTANCE_CREATED.set(true);
-                }
-            } finally {
-                LOCK.unlock();
-            }
+        if (instance == null) {
+            instance = init();
         }
         return instance;
     }

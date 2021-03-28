@@ -20,21 +20,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class FacultyResultSet implements EntityResultSet<Faculty> {
 
-    private static final ReentrantLock LOCK = new ReentrantLock();
-    private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
     private static FacultyResultSet instance;
 
     public static FacultyResultSet getInstance() {
-        if (!INSTANCE_CREATED.get()) {
-            LOCK.lock();
-            try {
-                if (instance == null) {
-                    instance = new FacultyResultSet();
-                    INSTANCE_CREATED.set(true);
-                }
-            } finally {
-                LOCK.unlock();
-            }
+        if (instance == null) {
+            instance = new FacultyResultSet();
         }
         return instance;
     }

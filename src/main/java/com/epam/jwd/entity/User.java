@@ -23,7 +23,6 @@ public class User extends Entity {
     private String email;
     private EnumUserRole userRole;
     private EnumUserStatus userStatus;
-
     private String firstname;
     private String lastname;
     private int averageScore;

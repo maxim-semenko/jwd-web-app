@@ -17,20 +17,10 @@ import java.util.concurrent.locks.ReentrantLock;
 public class PasswordSecurityService {
 
     public static PasswordSecurityService instance;
-    private static final ReentrantLock lock = new ReentrantLock();
-    private static final AtomicBoolean instanceCreated = new AtomicBoolean(false);
 
     public static PasswordSecurityService getInstance() {
-        if (!instanceCreated.get()) {
-            lock.lock();
-            try {
-                if (instance == null) {
-                    instance = new PasswordSecurityService();
-                    instanceCreated.set(true);
-                }
-            } finally {
-                lock.unlock();
-            }
+        if (instance == null) {
+            instance = new PasswordSecurityService();
         }
         return instance;
     }

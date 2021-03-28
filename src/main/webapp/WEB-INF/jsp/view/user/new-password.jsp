@@ -22,7 +22,8 @@
                     <fmt:message key="password.error"/>
                 </div>
             </c:if>
-            <form class="needs-validation" action="home?command=change-password" method="post">
+            <form class="needs-validation" action="/controller" method="post">
+                <input hidden name="command" value="command=change-password">
                 <label class="sr-only"></label>
                 <input style="margin-bottom: 5px" class="form-control" type="text" name="inputCheckCode"
                        placeholder="<fmt:message key="home.checkCode"/>"

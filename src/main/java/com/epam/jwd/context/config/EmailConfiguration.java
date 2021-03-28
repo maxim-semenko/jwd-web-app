@@ -23,8 +23,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class EmailConfiguration {
 
     private static EmailConfiguration instance;
-    private static final ReentrantLock LOCK = new ReentrantLock();
-    private static final AtomicBoolean INSTANCE_CREATED = new AtomicBoolean(false);
 
     private static final String MAIL_SMTP_AUTH = "mail.smtp.auth";
     private static final String MAIL_SMTP_STARTTLS_ENABLE = "mail.smtp.starttls.enable";
@@ -39,16 +37,8 @@ public class EmailConfiguration {
 
 
     public static EmailConfiguration getInstance() {
-        if (!INSTANCE_CREATED.get()) {
-            LOCK.lock();
-            try {
-                if (instance == null) {
-                    instance = init();
-                    INSTANCE_CREATED.set(true);
-                }
-            } finally {
-                LOCK.unlock();
-            }
+        if (instance == null) {
+            instance = init();
         }
         return instance;
     }

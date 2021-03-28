@@ -21,7 +21,7 @@ import java.io.IOException;
  * @version 0.0.1
  */
 
-@WebServlet("/home")
+@WebServlet("/controller")
 public class MainController extends HttpServlet {
 
     @Override

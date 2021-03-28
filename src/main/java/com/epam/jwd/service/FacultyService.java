@@ -20,21 +20,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class FacultyService {
 
     public static FacultyService instance;
-    private static final ReentrantLock lock = new ReentrantLock();
-    private static final AtomicBoolean instanceCreated = new AtomicBoolean(false);
     private static final FacultyDao facultyDao = FacultyDao.getInstance();
 
     public static FacultyService getInstance() {
-        if (!instanceCreated.get()) {
-            lock.lock();
-            try {
-                if (instance == null) {
-                    instance = new FacultyService();
-                    instanceCreated.set(true);
-                }
-            } finally {
-                lock.unlock();
-            }
+        if (instance == null) {
+            instance = new FacultyService();
         }
         return instance;
     }

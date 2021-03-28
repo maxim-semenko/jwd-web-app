@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<form  method="post">
+<form method="post">
     <div class="col-auto my-1">
         <label class="mr-sm-1" for="inlineFormCustomSelect" style="color: white"><fmt:message
                 key="language.select"/></label>

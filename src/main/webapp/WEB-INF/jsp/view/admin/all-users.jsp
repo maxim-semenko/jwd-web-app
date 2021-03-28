@@ -9,12 +9,12 @@
 <body>
 <c:if test="${sessionScope.user == null}">
     ${sessionScope.isLogout = true}
-    <c:redirect url="home?command=home"/>
+    <c:redirect url="controller?command=home"/>
 </c:if>
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="home?command=admin" class="navbar-brand d-flex align-items-center">
+            <a href="hcontrollerome?command=admin" class="navbar-brand d-flex align-items-center">
                 <img class="mb-4" src="<c:url value="/img/mortarboard.png"/>" width="64" height="64" alt="">
                 <strong><fmt:message key="admin.header"/></strong>
             </a>
@@ -26,14 +26,14 @@
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <a href="home?command=admin" style="text-decoration: none">
+                <a href="controller?command=admin" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
                         <fmt:message key="admin.back"/>
                     </button>
                 </a>
             </div>
             <div class="col-md-12 text-right mb-3">
-                <a href="home?command=admin/search-page" style="text-decoration: none">
+                <a href="controller?command=admin/search-page" style="text-decoration: none">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
                             id="btn_signup"><fmt:message key="admin.searchTitle"/>
                     </button>
@@ -75,7 +75,8 @@
                 <td><c:out value="${user.facultyId}"/></td>
                 <td><c:out value="${user.userRole}"/></td>
                 <td>
-                    <form action="home?command=remove-user-by-admin" method="post">
+                    <form action="/controller" method="post">
+                        <input hidden name="command" value="remove-user-by-admin">
                         <label><input type="number" hidden name="id" value="${user.id}"></label>
                         <button class="btn btn-success btn-block" type="submit">
                             <fmt:message key="admin.allUsers.delete"/>

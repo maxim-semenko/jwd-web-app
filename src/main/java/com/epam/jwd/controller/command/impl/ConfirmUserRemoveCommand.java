@@ -13,7 +13,6 @@ import com.epam.jwd.controller.command.ResponseContext;
  * @version 0.0.1
  */
 
-
 public class ConfirmUserRemoveCommand implements Command {
 
     private static final ResponseContext CONFIRM_USER_REMOVE_PAGE

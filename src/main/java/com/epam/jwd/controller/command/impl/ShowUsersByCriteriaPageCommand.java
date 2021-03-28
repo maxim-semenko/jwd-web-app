@@ -19,10 +19,6 @@ public class ShowUsersByCriteriaPageCommand implements Command {
 
     @Override
     public ResponseContext execute(RequestContext requestContext) {
-        requestContext.setAttribute("usersByCriteria",
-                requestContext.getHttpSession().getAttribute("usersByCriteria"));
-        requestContext.getHttpSession().setAttribute("usersByCriteria", null);
-        requestContext.getHttpSession().setAttribute("adminPage", "searchUsers");
         return SHOW_USERS_BY_CRITERIA_PAGE;
     }
 }

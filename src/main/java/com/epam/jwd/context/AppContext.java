@@ -38,16 +38,8 @@ public class AppContext {
     }
 
     public static AppContext getInstance() {
-        if (!INSTANCE_CREATED.get()) {
-            LOCK.lock();
-            try {
-                if (instance == null) {
-                    instance = new AppContext();
-                    INSTANCE_CREATED.set(true);
-                }
-            } finally {
-                LOCK.unlock();
-            }
+        if (instance == null) {
+            instance = new AppContext();
         }
         return instance;
     }
